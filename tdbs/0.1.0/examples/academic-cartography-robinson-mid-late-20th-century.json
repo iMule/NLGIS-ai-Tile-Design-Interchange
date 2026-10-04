@@ -1,0 +1,613 @@
+{
+    "$schema": "../../../spec/0.1.0/tdbs.schema.json",
+    "spec_version": "0.1.0",
+    "id": "academic-cartography-robinson-mid-late-20th-century",
+    "name": {
+        "canonical": "Academic Cartography, Robinson School — Mid–Late 20th Century",
+        "alias": "The Seminar-Room Standard",
+        "genre": "formulaic academic cartography",
+        "era": "mid–late 20th century",
+        "inspiration_notice": "An unofficial interpretive brief derived from source research and intended to guide original map styling; it does not reproduce or imply endorsement by referenced institutions, publishers, or cartographers.",
+        "organization_or_origin": [
+            "Madison, Wisconsin, USA",
+            "University of Wisconsin–Madison Geography Department",
+            "UW–Madison cartography Laboratory",
+            "Office of Strategic Services wartime antecedent"
+        ]
+    },
+    "description": {
+        "summary": "A rational, restrained, communication-first academic style: maps are not decorative pictures but carefully balanced graphic arguments. The look is clean, moderate, legible, and purposefully hierarchical, often with cream or white backgrounds, fine black/gray linework, disciplined type, limited color, clear classification, and marginal information that documents projection, scale, data, date, and authorship.",
+        "design_principle": "Every visible element should be integrated into a single communicative unit: clear enough to read, ordered enough to teach from, and restrained enough that no symbol is more or less prominent than its role requires.",
+        "historical_context": "Robinson helped transform American cartography from craft drafting into an academic design-and-communication discipline. The style should evoke a UW–Madison classroom/lab product from the 1950s–1970s: hand-drafted or mechanically reproduced, intellectually disciplined, methodologically explicit, and designed around the reader as map percipient. black-and-white textbook reproduction two-color instructional figures offset lithography",
+        "geographic_origin": [
+            "Madison, Wisconsin, USA",
+            "University of Wisconsin–Madison Geography Department",
+            "UW–Madison cartography Laboratory",
+            "Office of Strategic Services wartime antecedent"
+        ],
+        "avoid_misclassification_with": [
+            "Erwin Raisz physiographic hand-shaded terrain style",
+            "illustrated reference atlas pictorial atlas exuberance",
+            "Richard Edes Harrison dramatic perspective propaganda maps",
+            "Swiss modernist minimalism",
+            "contemporary web-dashboard cartography",
+            "Esri default GIS layouts",
+            "decorative vintage parchment maps"
+        ]
+    },
+    "classification": {
+        "ranked_intents": [
+            {
+                "rank": 1,
+                "intent": "thematic",
+                "role": "primary",
+                "score": 96,
+                "rationale": "Communication of a geographic variable, category, relationship, or argument. This brief is ranked 1 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 2,
+                "intent": "educational-interpretive",
+                "role": "primary",
+                "score": 93,
+                "rationale": "Teaching, heritage, visitor interpretation, public history, and exhibition use. This brief is ranked 2 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 3,
+                "intent": "reference",
+                "role": "hybrid",
+                "score": 82,
+                "rationale": "General geographic orientation, feature lookup, and broad contextual reading. This brief is ranked 3 with a hybrid role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 4,
+                "intent": "data-visualization",
+                "role": "primary",
+                "score": 76,
+                "rationale": "Quiet geographic context for dense analytical overlays. This brief is ranked 4 with a primary role based on its source classification and curated migration profile."
+            }
+        ],
+        "scales": [
+            "global",
+            "regional",
+            "local"
+        ],
+        "label_density": "moderate",
+        "terrain_emphasis": "context",
+        "dimensionality": "2d",
+        "interaction_fit": [
+            "static"
+        ],
+        "projection_bias": "none",
+        "mobile_fit": "moderate",
+        "implementation_complexity": "advanced",
+        "subjects": [
+            "global political geography",
+            "physical and environmental regions",
+            "population distributions",
+            "economic production",
+            "transportation and communications",
+            "climate and vegetation",
+            "map projections and distortion",
+            "classification and symbolization examples"
+        ],
+        "visual_keywords": [
+            "academic",
+            "scientific",
+            "authoritative",
+            "minimalist",
+            "analytical"
+        ]
+    },
+    "design_tokens": {
+        "colors": {
+            "palette": [
+                {
+                    "name": "warm ivory paper",
+                    "value": "#F6F1E5",
+                    "roles": [
+                        "background",
+                        "land"
+                    ],
+                    "notes": "A subtle off-white evokes aged textbook stock without fake parchment."
+                },
+                {
+                    "name": "ink black",
+                    "value": "#1F1F1B",
+                    "roles": [
+                        "labels"
+                    ],
+                    "notes": "Use sparingly at high contrast."
+                },
+                {
+                    "name": "drafting gray",
+                    "value": "#6F6D66",
+                    "roles": [
+                        "labels"
+                    ],
+                    "notes": "Keeps hierarchy quiet."
+                },
+                {
+                    "name": "pale hydro blue",
+                    "value": "#C9DCE2",
+                    "roles": [
+                        "water"
+                    ],
+                    "notes": "Low-saturation, atlas-like, not web-neon."
+                },
+                {
+                    "name": "muted instructional blue",
+                    "value": "#557C96",
+                    "roles": [
+                        "thematic-overlay"
+                    ],
+                    "notes": "Good for sequential ramps and hydro emphasis."
+                },
+                {
+                    "name": "oxide red",
+                    "value": "#9C5A4D",
+                    "roles": [
+                        "selection",
+                        "thematic-overlay"
+                    ],
+                    "notes": "Use like a second printing plate."
+                },
+                {
+                    "name": "ochre tan",
+                    "value": "#D7BF86",
+                    "roles": [
+                        "land",
+                        "terrain",
+                        "thematic-overlay"
+                    ],
+                    "notes": "Works in muted choropleth palettes."
+                },
+                {
+                    "name": "sage green",
+                    "value": "#9DAF83",
+                    "roles": [
+                        "vegetation",
+                        "thematic-overlay"
+                    ],
+                    "notes": "Muted enough for textbook reproduction."
+                },
+                {
+                    "name": "screen lavender gray",
+                    "value": "#B8B0BA",
+                    "roles": [
+                        "general"
+                    ],
+                    "notes": "Use for categorical contrast, not decoration."
+                }
+            ],
+            "behavior": [
+                "Design first in grayscale; add color only when it strengthens communication.",
+                "Prefer two-color figures: black/gray plus one muted hue.",
+                "Use ordered lightness steps for quantitative data; hue changes only when categories truly differ.",
+                "Represent uncertainty with gray screens, dashed outlines, or stipple rather than saturated warning colors.",
+                "Use color as part of symbol hierarchy, not as decoration."
+            ],
+            "avoid": [
+                "neon cyan, magenta, lime, and dashboard blue",
+                "full-spectrum rainbow ramps",
+                "highly saturated basemap colors",
+                "faux antique browns that imply a much older parchment map",
+                "glowing web gradients"
+            ]
+        },
+        "typography": {
+            "character": "Bookish, disciplined serif/sans mix. Titles may use a classic serif or sober transitional serif; labels should use compact legible serif or humanist sans. Type should feel typeset, not hand-lettered or corporate-app-like.",
+            "font_families": [
+                "Source Serif 4",
+                "Libre Baskerville",
+                "IBM Plex Serif",
+                "Source Sans 3",
+                "IBM Plex Sans",
+                "Inter Tight"
+            ],
+            "fallback_strategy": "Prefer metrically stable, licensable fonts with the language coverage required by the map; preserve hierarchy when substitution is necessary.",
+            "rules": [
+                "Never use more than two font families.",
+                "Italicize hydrographic labels; use letterspacing for large-area labels.",
+                "Keep labels horizontal where possible, except water/linear features.",
+                "Use type placement to clarify figure-ground, not to decorate.",
+                "Do not use drop shadows, glows, novelty fonts, script fonts, or condensed tech-dashboard type.",
+                "Use title, subtitle, legend, notes, and sources as a coherent marginal information system."
+            ]
+        },
+        "linework": [
+            "Precise ink-drafted strokes: thin, consistent, and hierarchical. Use hairline graticules, slightly stronger coastlines, and moderated administrative boundaries.",
+            "coastlines: 0.8–1.1 px dark gray/black with subtle water/land contrast",
+            "international or state boundaries: 0.6–0.9 px black or gray; use dashes only for disputed/secondary boundaries",
+            "internal boundaries: 0.35–0.6 px gray",
+            "study-area boundary: slightly heavier black or oxide-red rule, never glowing",
+            "water bodies filled pale blue with darker fine outlines only where needed",
+            "rivers drawn as tapered or hierarchy-weighted blue-gray lines",
+            "minor streams omitted at small scales",
+            "water labels italic and calm",
+            "roads/railroads appear only when analytically relevant",
+            "railroads may use fine black line with short tick/cased pattern in OSS-inspired intelligence maps",
+            "major roads should be understated gray or tan lines; no bright shield-heavy highway basemap",
+            "use contours, hillshade, or hypsometric tints only if the theme needs terrain",
+            "relief should be subtle, low-contrast, and subordinate to thematic data",
+            "avoid Raisz-style physiographic hill drawings unless explicitly requested as a hybrid"
+        ],
+        "fills": [
+            "Design first in grayscale; add color only when it strengthens communication.",
+            "Prefer two-color figures: black/gray plus one muted hue.",
+            "Use ordered lightness steps for quantitative data; hue changes only when categories truly differ.",
+            "Represent uncertainty with gray screens, dashed outlines, or stipple rather than saturated warning colors.",
+            "Use color as part of symbol hierarchy, not as decoration.",
+            "Use simplified natural-earth/generalized geography appropriate to scale.",
+            "Favor clean land/water separation over detailed basemap tiles.",
+            "Suppress unnecessary POIs, roads, terrain labels, and modern basemap clutter.",
+            "For world maps, Robinson projection is preferred unless the task requires equal area, conformality, or local accuracy.",
+            "Choropleths: 4–7 classes, lightness-ordered, with method stated.",
+            "Isolines/isopleths: fine smooth lines, labeled intermittently, with soft tint bands if needed.",
+            "Proportional symbols: mathematically scaled circles with clear legend; avoid 3D bubbles.",
+            "Categorical maps: limited hues plus pattern/line differences."
+        ],
+        "labels": [
+            "Never use more than two font families.",
+            "Italicize hydrographic labels; use letterspacing for large-area labels.",
+            "Keep labels horizontal where possible, except water/linear features.",
+            "Use type placement to clarify figure-ground, not to decorate.",
+            "Do not use drop shadows, glows, novelty fonts, script fonts, or condensed tech-dashboard type.",
+            "Use title, subtitle, legend, notes, and sources as a coherent marginal information system.",
+            "Label economy: enough for orientation, not every feature.",
+            "Avoid collisions; prioritize legibility over completeness.",
+            "Area labels may be letterspaced and centered within regions.",
+            "Use subtle halos only when necessary for reading."
+        ],
+        "symbols": [
+            "Use simple geometric symbols: circles, squares, triangles, crosses, fine arrowheads.",
+            "Symbols must be black/gray or muted plate colors.",
+            "No emojis, glossy icons, 3D symbols, animated pulsing, or pictograms unless used as small textbook-style diagrams.",
+            "Use stroke/fill contrast to preserve readability in black-and-white."
+        ],
+        "terrain": [
+            "use contours, hillshade, or hypsometric tints only if the theme needs terrain",
+            "relief should be subtle, low-contrast, and subordinate to thematic data",
+            "avoid Raisz-style physiographic hill drawings unless explicitly requested as a hybrid",
+            "Use generalized terrain only when terrain is part of the message.",
+            "Prefer low-contrast contours or muted hypsometric tints.",
+            "Do not overpower thematic information with hillshade."
+        ],
+        "materiality": [
+            "Warm ivory or clean white textbook page; not distressed parchment.",
+            "Very subtle paper grain or none. If included, opacity under 4%.",
+            "optional faint halftone/screen tint for area fills",
+            "optional slight ink spread on heavy black rules",
+            "optional two-color plate feel with muted blue or red over black",
+            "avoid coffee stains, torn edges, fold marks, and heavy sepia aging",
+            "mild yellowing is acceptable only as background tone",
+            "Use SVG or Canvas patterns for stipple, hatch, and screen tints.",
+            "Apply texture globally at low opacity, not per-feature noise.",
+            "Keep interactions visually quiet so the analog figure remains dominant."
+        ]
+    },
+    "layer_semantics": {
+        "background": {
+            "visibility": "required",
+            "priority": 92,
+            "treatment": [
+                "Design first in grayscale; add color only when it strengthens communication.",
+                "Prefer two-color figures: black/gray plus one muted hue.",
+                "Use ordered lightness steps for quantitative data; hue changes only when categories truly differ.",
+                "Represent uncertainty with gray screens, dashed outlines, or stipple rather than saturated warning colors.",
+                "Use simplified natural-earth/generalized geography appropriate to scale.",
+                "Favor clean land/water separation over detailed basemap tiles.",
+                "Suppress unnecessary POIs, roads, terrain labels, and modern basemap clutter."
+            ]
+        },
+        "land": {
+            "visibility": "required",
+            "priority": 72,
+            "treatment": [
+                "Use simplified natural-earth/generalized geography appropriate to scale.",
+                "Favor clean land/water separation over detailed basemap tiles.",
+                "Suppress unnecessary POIs, roads, terrain labels, and modern basemap clutter.",
+                "For world maps, Robinson projection is preferred unless the task requires equal area, conformality, or local accuracy."
+            ]
+        },
+        "water": {
+            "visibility": "required",
+            "priority": 82,
+            "treatment": [
+                "Pale blue or white water; subtle coastline emphasis.",
+                "Hydrographic labels in italic muted blue.",
+                "Major water bodies labeled when they support orientation."
+            ]
+        },
+        "terrain": {
+            "visibility": "preferred",
+            "priority": 55,
+            "treatment": [
+                "Use generalized terrain only when terrain is part of the message.",
+                "Prefer low-contrast contours or muted hypsometric tints.",
+                "Do not overpower thematic information with hillshade."
+            ]
+        },
+        "boundaries": {
+            "visibility": "preferred",
+            "priority": 67,
+            "treatment": [
+                "Coastlines and national/state boundaries are precise but not visually loud.",
+                "Use administrative boundaries only at relevant hierarchy levels.",
+                "Disputed/uncertain boundaries use dashes and explanatory marginal notes."
+            ]
+        },
+        "transportation": {
+            "visibility": "required",
+            "priority": 70,
+            "treatment": [
+                "Include only analytically relevant transportation layers.",
+                "Railroads/ports/industrial objectives can use OSS-style fine black lines and small symbols.",
+                "Do not use modern multicolor road hierarchy unless the map is specifically transportation-focused."
+            ]
+        },
+        "buildings": {
+            "visibility": "preferred",
+            "priority": 66,
+            "treatment": [
+                "Cities are small black dots or open circles, labeled selectively.",
+                "Tier settlement symbols by population or analytic relevance.",
+                "Use no pictorial skyline icons."
+            ]
+        },
+        "places": {
+            "visibility": "required",
+            "priority": 90,
+            "treatment": [
+                "Label economy: enough for orientation, not every feature.",
+                "Avoid collisions; prioritize legibility over completeness.",
+                "Area labels may be letterspaced and centered within regions.",
+                "Use subtle halos only when necessary for reading.",
+                "Cities are small black dots or open circles, labeled selectively.",
+                "Tier settlement symbols by population or analytic relevance.",
+                "Use no pictorial skyline icons."
+            ]
+        },
+        "pois": {
+            "visibility": "optional",
+            "priority": 46,
+            "treatment": [
+                "Use simple geometric symbols: circles, squares, triangles, crosses, fine arrowheads.",
+                "Symbols must be black/gray or muted plate colors.",
+                "No emojis, glossy icons, 3D symbols, animated pulsing, or pictograms unless used as small textbook-style diagrams.",
+                "Use stroke/fill contrast to preserve readability in black-and-white."
+            ]
+        },
+        "thematic_overlay": {
+            "visibility": "required",
+            "priority": 100,
+            "treatment": [
+                "Choropleths: 4–7 classes, lightness-ordered, with method stated.",
+                "Isolines/isopleths: fine smooth lines, labeled intermittently, with soft tint bands if needed.",
+                "Proportional symbols: mathematically scaled circles with clear legend; avoid 3D bubbles.",
+                "Categorical maps: limited hues plus pattern/line differences.",
+                "Flow maps: restrained line weights, clean terminals, minimal arrowheads.",
+                "Uncertainty: stipple, gray hatch, dashed outlines, or note flags."
+            ]
+        }
+    },
+    "constraints": {
+        "required": [
+            "Every visible element should be integrated into a single communicative unit: clear enough to read, ordered enough to teach from, and restrained enough that no symbol is more or less prominent than its role requires."
+        ],
+        "preferred": [
+            "Use Robinson projection for general world maps when stylistically appropriate.",
+            "Use Albers, Lambert conformal conic, or another academically defensible projection for regional maps when Robinson would be inappropriate.",
+            "State projection, data source, date, units, and classification method in marginalia or source modal.",
+            "Design the map to work as a static figure before adding interactions.",
+            "Use restrained color and typography, with clear visual hierarchy.",
+            "Generalize data to the display scale; avoid over-detailed geometry.",
+            "Do not omit projection/classification/source notes.",
+            "Do not overload the map with labels merely because data are available.",
+            "In MapLibre/web map library, suppress default controls or restyle them as small square cream buttons with thin borders.",
+            "Implement hatch/stipple via SVG patterns or Canvas pattern fills for missing/uncertain areas.",
+            "Use D3 or chroma-like logic to build lightness-ordered ramps; verify contrast in grayscale.",
+            "For world maps in MapLibre, use preprojected GeoJSON/SVG if Robinson projection is required and native projection support is insufficient."
+        ],
+        "avoid": [
+            "Erwin Raisz physiographic hand-shaded terrain style",
+            "illustrated reference atlas pictorial atlas exuberance",
+            "Richard Edes Harrison dramatic perspective propaganda maps",
+            "Swiss modernist minimalism",
+            "contemporary web-dashboard cartography",
+            "Esri default GIS layouts",
+            "decorative vintage parchment maps",
+            "neon cyan, magenta, lime, and dashboard blue",
+            "full-spectrum rainbow ramps",
+            "highly saturated basemap colors",
+            "faux antique browns that imply a much older parchment map",
+            "glowing web gradients"
+        ],
+        "unsupported": [
+            "Exact facsimile reproduction of a named source map, protected artwork, logo, seal, interface, or trade dress.",
+            "Provider-specific behavior that has not been verified against a pinned source and style contract."
+        ],
+        "accessibility": {
+            "color_independence": "Sequential ramps must remain interpretable in grayscale. Use lightness, texture, and line style redundantly; do not rely on red/green distinction alone.",
+            "contrast": "Preserve readable contrast for labels, lines, and critical symbols at intended zoom levels.",
+            "minimum_text_size": "Adapt historical or print typography to a practical screen-reading threshold.",
+            "additional": [
+                "Test the compiled style in grayscale and under common color-vision simulations."
+            ]
+        }
+    },
+    "sources": [
+        {
+            "type": "reference-image",
+            "title": "Robinson projection example",
+            "creator_or_publisher": "Esri Contemporary Professional GIS documentation",
+            "rights": "Website documentation; use as reference only",
+            "relevance": "Documents the graticule form, pseudocylindric compromise shape, and the academic cartographic tradition’s graphic-design-first projection method. Citation: https://doc.Esri.com/en/professional GIS-pro/latest/help/mapping/properties/robinson.html",
+            "year": "current documentation",
+            "holding_institution": "Esri"
+        },
+        {
+            "type": "reference-image",
+            "title": "The President's Globe",
+            "creator_or_publisher": "United States Office of Strategic Services / Weber Costello Co.",
+            "rights": "Library of Congress blog/reference image; use as research evidence only",
+            "relevance": "Wartime Robinson-led OSS context: global strategic reference mapping with sober purpose, clear oceans/continents, and distance reasoning.",
+            "year": 1942,
+            "url": "https://blogs.loc.gov/maps/2018/01/the-presidents-globe/",
+            "holding_institution": "Library of Congress Geography and Map Division"
+        },
+        {
+            "type": "reference-map",
+            "title": "OSS map examples including European fronts, Sumatra vegetation, industrial areas, and railroad objectives",
+            "creator_or_publisher": "Office of Strategic Services Research and Analysis Branch / Reproduction Branch",
+            "rights": "Archival reference; individual item rights vary",
+            "relevance": "Useful for marginalia, map-number/date conventions, restrained thematic fills, and intelligence-report visual economy.",
+            "year": "1942–1945",
+            "url": "https://www.nypl.org/blog/2023/11/15/oss-maps-lionel-pincus-and-princess-firyal-map-division",
+            "holding_institution": "New York Public Library, Lionel Pincus and Princess Firyal Map Division"
+        },
+        {
+            "type": "reference-image",
+            "title": "Elements of cartography textbook figures and cover history",
+            "creator_or_publisher": "mid-century academic cartographer and coauthors; cartographic Perspectives analysis by Judith A. Tyner",
+            "rights": "Academic article; use as interpretive evidence",
+            "relevance": "Evidence for design, symbolization, typography, two-color figures, and textbook-era academic cartographic norms.",
+            "year": "1953–1995 editions",
+            "url": "https://cartographicperspectives.org/index.php/journal/article/download/cp51-tyner/pdf/2080",
+            "holding_institution": "cartographic Perspectives"
+        },
+        {
+            "type": "textual-source",
+            "title": "Arthur Howard Robinson memorial",
+            "creator_or_publisher": "American Association of Geographers",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Biography, OSS role, UW career, books, projection, and recognition.",
+            "year": 2004,
+            "url": "https://www.aag.org/memorial/arthur-howard-robinson/"
+        },
+        {
+            "type": "textual-source",
+            "title": "Arthur Howard Robinson (1915–2004)",
+            "creator_or_publisher": "International cartographic Association",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "International cartographic career context and the academic cartographic tradition’s institutional stature.",
+            "year": 2004,
+            "url": "https://icaci.org/arthur-h-robinson-1915-2004/"
+        },
+        {
+            "type": "textual-source",
+            "title": "cartography pioneer, UW scholar dies at 89",
+            "creator_or_publisher": "UW–Madison News",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "UW–Madison career, publications, and institutional role.",
+            "year": 2004,
+            "url": "https://news.wisc.edu/cartography-pioneer-uw-scholar-dies-at-89/"
+        },
+        {
+            "type": "textual-source",
+            "title": "The Geography department honors the legacy of an influential cloud web mapping platformgrapher",
+            "creator_or_publisher": "UW–Madison College of Letters & Science",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "cartography Laboratory founding, Map Library naming, UW institutional context. Citation: https://ls.wisc.edu/news/geography-honors-legacy-of-influential-cloud web mapping platformgrapher",
+            "year": 2016
+        },
+        {
+            "type": "textual-source",
+            "title": "Robinson projection documentation",
+            "creator_or_publisher": "Esri",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Projection properties and graphic-design origin. Citation: https://doc.Esri.com/en/professional GIS-pro/latest/help/mapping/properties/robinson.html",
+            "year": "current documentation"
+        },
+        {
+            "type": "textual-source",
+            "title": "Elements of cartography: Tracing Fifty Years of Academic cartography",
+            "creator_or_publisher": "Judith A. Tyner",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Explains the academic cartographic tradition’s textbook influence, design chapter, typography, symbolization, color, and conceptual shift. Citation: cartographic Perspectives 51",
+            "year": 2005
+        }
+    ],
+    "rights": {
+        "brief_license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "copyright": "© 2026 Ian Muehlenhaus",
+        "creators": [
+            "Ian Muehlenhaus"
+        ],
+        "attribution_parties": [
+            "PromptCartography.com",
+            "NLGIS.ai",
+            "WebMapper.org"
+        ],
+        "credit_line": "Design brief: PromptCartography.com, NLGIS.ai, and WebMapper.org (CC BY 4.0).",
+        "preferred_map_credit": "Design: nlgis.ai",
+        "modification_notice_required": true,
+        "no_endorsement": true,
+        "source_rights_notice": "This license covers the design brief only; cited maps, scans, data, marks, typefaces, interfaces, and artwork retain their own rights."
+    },
+    "provenance": {
+        "created": "2026-07-01",
+        "modified": "2026-10-04",
+        "review_status": "draft",
+        "method": "Deterministically migrated from the frozen Prompt Cartography library with curated identity and intent profiles using TDBS migrator 0.1.0.",
+        "migrated_from": "promptcartography:arthur_robinson_formulaic_academic_cartography_style.schema.json",
+        "source_sha256": "f5c903f512c719df5834bcad7236dffe6cea1045b1c76950687b7ec058c655f6",
+        "reviewers": [],
+        "notes": "Generated draft requiring cartographic, naming, attribution, source-rights, and cultural-sensitivity review before approval."
+    },
+    "provider_compatibility": {
+        "maptiler": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned MapTiler source/template contract."
+        },
+        "arcgis": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned ArcGIS VectorTileServer style."
+        },
+        "mapbox": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against the selected Mapbox style contract."
+        },
+        "maplibre": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a known source schema."
+        }
+    },
+    "extensions": {
+        "org.promptcartography.style-dna": {
+            "version": "1.0.0",
+            "vector": {
+                "modern_vs_historic": 50,
+                "minimal_vs_ornate": 30,
+                "scientific_vs_artistic": 35,
+                "reference_vs_thematic": 50,
+                "print_vs_interactive": 30,
+                "light_vs_dark": 30,
+                "formal_vs_playful": 35,
+                "muted_vs_vivid": 38,
+                "flat_vs_textured": 50,
+                "geometric_vs_organic": 50,
+                "sparse_vs_dense": 50,
+                "static_vs_animated": 20,
+                "generalized_vs_detailed": 68,
+                "neutral_vs_emotive": 50,
+                "low_vs_high_interaction": 20
+            },
+            "confidence": 0.77,
+            "source": "rule_based",
+            "review_status": "draft",
+            "rationale": {
+                "minimal_vs_ornate": "Minimalist personality cue.",
+                "scientific_vs_artistic": "Scientific, technical, governmental, or academic cues.",
+                "formal_vs_playful": "Formal institutional or academic cue.",
+                "light_vs_dark": "Light palette cue.",
+                "muted_vs_vivid": "Muted, neutral, earth-tone, or limited-color cue.",
+                "low_vs_high_interaction": "Static interaction level.",
+                "print_vs_interactive": "Static styles are usually print-oriented.",
+                "static_vs_animated": "Static interaction level.",
+                "generalized_vs_detailed": "Detailed reference map-type cue."
+            },
+            "last_modified": "2026-07-12"
+        }
+    }
+}

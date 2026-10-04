@@ -1,0 +1,557 @@
+{
+    "$schema": "../../../spec/0.1.0/tdbs.schema.json",
+    "spec_version": "0.1.0",
+    "id": "france-cassini-survey-18th-century",
+    "name": {
+        "canonical": "French Cassini Survey — 18th Century",
+        "alias": "The Royal Triangulation",
+        "genre": "engraved national survey map",
+        "era": "18th century",
+        "inspiration_notice": "An unofficial interpretive brief derived from source research and intended to guide original map styling; it does not reproduce or imply endorsement by referenced institutions, publishers, or cartographers.",
+        "organization_or_origin": [
+            "Kingdom of France",
+            "Académie Royale des Sciences context",
+            "Cassini family survey tradition",
+            "Paris engraving and sheet publication network"
+        ]
+    },
+    "description": {
+        "summary": "An engraved Enlightenment-era survey style: cream paper, black/brown copperplate linework, dense place names, roads, rivers, forests, churches and settlements, sheet margins, measured framework, and approximate hachured relief. The map should feel scientific and royal-state systematic, not fanciful pirate parchment. Sacrebleu, but with triangulation.",
+        "design_principle": "Express national survey precision through engraved restraint: monochrome or lightly hand-colored linework, dense named geography, hachured relief, road and settlement symbols, neat sheet structure, and formal cloud web mapping platformuche/marginalia.",
+        "historical_context": "The Cassini Carte de France was a large national survey project, based on geodetic triangulation and published as adjoining engraved sheets. It represented an unprecedented systematic mapping of France's territory, settlements, roads, hydrography, and relief in the eighteenth century. copperplate engraving black ink impressions on cream/ivory paper hand coloring in selected surviving exemplars",
+        "geographic_origin": [
+            "Kingdom of France",
+            "Académie Royale des Sciences context",
+            "Cassini family survey tradition",
+            "Paris engraving and sheet publication network"
+        ],
+        "avoid_misclassification_with": [
+            "Nautical portolan chart",
+            "decorative Renaissance map",
+            "19th-century county atlas",
+            "modern French national mapping topographic map",
+            "Victorian railway map",
+            "fantasy parchment map"
+        ]
+    },
+    "classification": {
+        "ranked_intents": [
+            {
+                "rank": 1,
+                "intent": "educational-interpretive",
+                "role": "primary",
+                "score": 97,
+                "rationale": "Teaching, heritage, visitor interpretation, public history, and exhibition use. This brief is ranked 1 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 2,
+                "intent": "reference",
+                "role": "primary",
+                "score": 91,
+                "rationale": "General geographic orientation, feature lookup, and broad contextual reading. This brief is ranked 2 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 3,
+                "intent": "terrain-relief",
+                "role": "hybrid",
+                "score": 84,
+                "rationale": "Elevation, landform, contours, hillshade, bathymetry, and relief as the principal subject. This brief is ranked 3 with a hybrid role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 4,
+                "intent": "human-geography",
+                "role": "hybrid",
+                "score": 77,
+                "rationale": "Settlements, boundaries, culture, population, political geography, and human networks. This brief is ranked 4 with a hybrid role based on its source classification and curated migration profile."
+            }
+        ],
+        "scales": [
+            "regional",
+            "local"
+        ],
+        "label_density": "dense",
+        "terrain_emphasis": "context",
+        "dimensionality": "2d",
+        "interaction_fit": [
+            "static",
+            "exploratory"
+        ],
+        "projection_bias": "conformal",
+        "mobile_fit": "low",
+        "implementation_complexity": "expert",
+        "subjects": [
+            "settlements from cities to hamlets",
+            "roads and paths",
+            "rivers and watercourses",
+            "forests, parks, and alleys",
+            "relief by hachures",
+            "churches, abbeys, mills, castles, and other landmarks",
+            "sheet grid and survey framework"
+        ],
+        "visual_keywords": [
+            "vintage",
+            "ornate",
+            "handcrafted",
+            "scientific",
+            "authoritative",
+            "academic"
+        ]
+    },
+    "design_tokens": {
+        "colors": {
+            "palette": [
+                {
+                    "name": "aged ivory paper",
+                    "value": "#EFE3C6",
+                    "roles": [
+                        "background",
+                        "land"
+                    ]
+                },
+                {
+                    "name": "paper shadow tan",
+                    "value": "#D6C39A",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "iron gall ink",
+                    "value": "#2B261D",
+                    "roles": [
+                        "labels"
+                    ]
+                },
+                {
+                    "name": "sepia ink",
+                    "value": "#5B4631",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "faded blue wash",
+                    "value": "#B6C7C4",
+                    "roles": [
+                        "water"
+                    ]
+                },
+                {
+                    "name": "faded green wash",
+                    "value": "#B9BF8F",
+                    "roles": [
+                        "vegetation"
+                    ]
+                },
+                {
+                    "name": "muted ochre",
+                    "value": "#C0A15F",
+                    "roles": [
+                        "transportation"
+                    ]
+                },
+                {
+                    "name": "cloud web mapping platformuche gray",
+                    "value": "#7A6C5A",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "ink fade",
+                    "value": "#8A7B63",
+                    "roles": [
+                        "labels"
+                    ]
+                }
+            ],
+            "behavior": [
+                "Default should be black/sepia engraving on ivory paper.",
+                "Use color only as transparent hand-applied wash, never as modern flat thematic fill.",
+                "If roads are highlighted, use ochre or slightly heavier ink rather than bright modern colors.",
+                "Forests may use a pale green wash plus engraved tree/texture marks; water may use faint blue wash plus black river engraving."
+            ],
+            "avoid": [
+                "modern saturated choropleths",
+                "French national mapping contemporary greens/blues/magentas",
+                "rainbow palettes",
+                "neon highlights",
+                "opaque digital fills"
+            ]
+        },
+        "typography": {
+            "character": "Engraved old-style serif and copperplate-like italic mix. Place labels should feel hand-engraved, with elegant variation in size, slope, spacing, and curvature. Avoid Victorian display fonts; Cassini is earlier and more scientific.",
+            "font_families": [
+                "Cormorant Garamond",
+                "Libre Caslon Text",
+                "EB Garamond",
+                "IM Fell English",
+                "Crimson Pro",
+                "Alegreya"
+            ],
+            "fallback_strategy": "Prefer metrically stable, licensable fonts with the language coverage required by the map; preserve hierarchy when substitution is necessary.",
+            "rules": [
+                "Use many place labels; dense naming is part of the style.",
+                "Allow slight rotation and curvature to follow rivers, coasts, roads, or regional spread.",
+                "Prefer old-style serifs and italics; do not use modern sans-serif labels.",
+                "Use long-s characters only with extreme caution; legibility beats antiquarian showing-off."
+            ]
+        },
+        "linework": [
+            "Fine engraved black/sepia linework with varied pressure, slight wobble, cross-hatching, and small symbolic marks. Use line density instead of color to differentiate features.",
+            "thin dotted or dashed administrative/provincial limits",
+            "sheet neatlines and grid lines in strong sepia/black",
+            "coastlines engraved with slightly heavier outer stroke and fine water/coastal hatching",
+            "rivers as sinuous engraved lines tapering by order",
+            "tributaries thin and numerous",
+            "waterbody outlines black/sepia with optional pale wash",
+            "marshy areas with horizontal strokes, reed marks, or stipple",
+            "main roads as paired or slightly heavier lines, sometimes with route emphasis",
+            "secondary roads as single fine lines",
+            "paths as dotted or broken lines",
+            "bridges as tiny line interruptions or symbols",
+            "relief by hachures, molehill strokes, and slope marks rather than contours",
+            "hills drawn as clusters of short directional strokes",
+            "mountain areas dense with brown/black hachures",
+            "avoid modern contour intervals entirely"
+        ],
+        "fills": [
+            "Default should be black/sepia engraving on ivory paper.",
+            "Use color only as transparent hand-applied wash, never as modern flat thematic fill.",
+            "If roads are highlighted, use ochre or slightly heavier ink rather than bright modern colors.",
+            "Forests may use a pale green wash plus engraved tree/texture marks; water may use faint blue wash plus black river engraving.",
+            "ivory paper background",
+            "fine black/sepia engraved geography",
+            "visible sheet grid or neatline",
+            "dense settlement and road network",
+            "Use antique overlays: thin colored washes, hatched polygons, outline-only regions, numbered callouts keyed to a cloud web mapping platformuche.",
+            "Avoid modern bivariate, choropleth, and dashboard conventions unless they are deliberately reinterpreted through engraving patterns."
+        ],
+        "labels": [
+            "Use many place labels; dense naming is part of the style.",
+            "Allow slight rotation and curvature to follow rivers, coasts, roads, or regional spread.",
+            "Prefer old-style serifs and italics; do not use modern sans-serif labels.",
+            "Use long-s characters only with extreme caution; legibility beats antiquarian showing-off.",
+            "old-style serif and italic labels",
+            "curved hydro labels",
+            "region names with wide tracking",
+            "minor labels set small and dark without modern halos unless needed"
+        ],
+        "symbols": [
+            "church/abbey crosses and tiny landmark pictograms",
+            "mills, castles, woods, rocks, and villages represented by small engraved symbols",
+            "forests represented by tree clusters or stipple plus optional green wash",
+            "use symbol repetition rather than icon libraries"
+        ],
+        "terrain": [
+            "relief by hachures, molehill strokes, and slope marks rather than contours",
+            "hills drawn as clusters of short directional strokes",
+            "mountain areas dense with brown/black hachures",
+            "avoid modern contour intervals entirely",
+            "hachures and slope strokes",
+            "molehill hill symbols in small uplands",
+            "rock/slope texture through line density",
+            "no modern contours or shaded relief except as hidden support for generating hachures"
+        ],
+        "materiality": [
+            "aged ivory with subtle warm variation; not burnt pirate parchment",
+            "fine paper grain, slight plate impression, occasional scan mottling",
+            "copperplate line irregularity",
+            "minor ink spread",
+            "engraved hachure texture",
+            "sheet seams",
+            "subtle fold marks and edge discoloration",
+            "slight georeferencing misalignment if shown as tiled historical overlay",
+            "faint foxing",
+            "mild paper darkening at sheet edges",
+            "small stains only if they do not hide geographic content",
+            "slightly faded ink in low-priority areas",
+            "Use SVG patterns or canvas textures for hachures, forests, marshes, and paper grain.",
+            "Keep thematic overlays line-based or washed; flat GIS polygons will break the illusion."
+        ]
+    },
+    "layer_semantics": {
+        "background": {
+            "visibility": "required",
+            "priority": 92,
+            "treatment": [
+                "Default should be black/sepia engraving on ivory paper.",
+                "Use color only as transparent hand-applied wash, never as modern flat thematic fill.",
+                "If roads are highlighted, use ochre or slightly heavier ink rather than bright modern colors.",
+                "Forests may use a pale green wash plus engraved tree/texture marks; water may use faint blue wash plus black river engraving.",
+                "ivory paper background",
+                "fine black/sepia engraved geography",
+                "visible sheet grid or neatline"
+            ]
+        },
+        "land": {
+            "visibility": "required",
+            "priority": 72,
+            "treatment": [
+                "ivory paper background",
+                "fine black/sepia engraved geography",
+                "visible sheet grid or neatline",
+                "dense settlement and road network"
+            ]
+        },
+        "water": {
+            "visibility": "required",
+            "priority": 82,
+            "treatment": [
+                "engraved rivers and tributaries",
+                "faint blue wash optional",
+                "coastal hatching and labels in large spaced capitals",
+                "marsh/reed textures for wetlands"
+            ]
+        },
+        "terrain": {
+            "visibility": "preferred",
+            "priority": 55,
+            "treatment": [
+                "hachures and slope strokes",
+                "molehill hill symbols in small uplands",
+                "rock/slope texture through line density",
+                "no modern contours or shaded relief except as hidden support for generating hachures"
+            ]
+        },
+        "boundaries": {
+            "visibility": "preferred",
+            "priority": 67,
+            "treatment": [
+                "thin dotted/dashed historical administrative boundaries",
+                "sheet grid and numbering stronger than political modern boundaries",
+                "avoid modern departmental outlines unless intentionally translated with antique linework"
+            ]
+        },
+        "transportation": {
+            "visibility": "required",
+            "priority": 70,
+            "treatment": [
+                "main roads as paired/strong engraved lines",
+                "secondary roads as thinner lines",
+                "paths/drove roads as dotted/broken strokes",
+                "bridges, ferries, and crossings as tiny engraved marks"
+            ]
+        },
+        "buildings": {
+            "visibility": "preferred",
+            "priority": 66,
+            "treatment": [
+                "ranked city/town/village symbols using small circles, church marks, building clusters, or named text",
+                "many hamlets labeled; dense naming is a signature",
+                "major towns use larger type and stronger symbol"
+            ]
+        },
+        "places": {
+            "visibility": "required",
+            "priority": 90,
+            "treatment": [
+                "old-style serif and italic labels",
+                "curved hydro labels",
+                "region names with wide tracking",
+                "minor labels set small and dark without modern halos unless needed",
+                "ranked city/town/village symbols using small circles, church marks, building clusters, or named text",
+                "many hamlets labeled; dense naming is a signature",
+                "major towns use larger type and stronger symbol"
+            ]
+        },
+        "pois": {
+            "visibility": "optional",
+            "priority": 46,
+            "treatment": [
+                "church/abbey crosses and tiny landmark pictograms",
+                "mills, castles, woods, rocks, and villages represented by small engraved symbols",
+                "forests represented by tree clusters or stipple plus optional green wash",
+                "use symbol repetition rather than icon libraries"
+            ]
+        },
+        "thematic_overlay": {
+            "visibility": "preferred",
+            "priority": 84,
+            "treatment": [
+                "Use antique overlays: thin colored washes, hatched polygons, outline-only regions, numbered callouts keyed to a cloud web mapping platformuche.",
+                "Avoid modern bivariate, choropleth, and dashboard conventions unless they are deliberately reinterpreted through engraving patterns."
+            ]
+        }
+    },
+    "constraints": {
+        "required": [
+            "Express national survey precision through engraved restraint: monochrome or lightly hand-colored linework, dense named geography, hachured relief, road and settlement symbols, neat sheet structure, and formal cloud web mapping platformuche/marginalia."
+        ],
+        "preferred": [
+            "Use ivory paper, sepia/black engraved lines, old-style serif typography, and hachured relief.",
+            "Use antique marginalia: cloud web mapping platformuche, scale, sheet number, neatline, and source note.",
+            "Do not use modern contours, hillshade gradients, or satellite imagery.",
+            "Do not turn it into a fantasy treasure map with burnt edges and skulls. Absolutely not; history has suffered enough.",
+            "Do not use bright thematic fills or default web map pins.",
+            "Generate hachures from terrain slope/aspect if possible, or use hand-drawn hachure textures clipped to relief zones.",
+            "For polygons, use hatching, stipple, or transparent wash instead of flat opaque fill.",
+            "Treat label density as a feature, but provide a web legibility mode at small screens.",
+            "Mobile: use a magnified viewport or forced landscape for detailed Cassini facsimile; otherwise offer cleaned label mode."
+        ],
+        "avoid": [
+            "Nautical portolan chart",
+            "decorative Renaissance map",
+            "19th-century county atlas",
+            "modern French national mapping topographic map",
+            "Victorian railway map",
+            "fantasy parchment map",
+            "modern saturated choropleths",
+            "French national mapping contemporary greens/blues/magentas",
+            "rainbow palettes",
+            "neon highlights",
+            "opaque digital fills"
+        ],
+        "unsupported": [
+            "Exact facsimile reproduction of a named source map, protected artwork, logo, seal, interface, or trade dress.",
+            "Provider-specific behavior that has not been verified against a pinned source and style contract."
+        ],
+        "accessibility": {
+            "color_independence": "Authentic low-contrast antique palettes can be difficult on screens. Provide an optional 'legible facsimile' mode with slightly darker ink and cleaner halos/paper contrast while preserving the engraved aesthetic.",
+            "contrast": "Preserve readable contrast for labels, lines, and critical symbols at intended zoom levels.",
+            "minimum_text_size": "Adapt historical or print typography to a practical screen-reading threshold.",
+            "additional": [
+                "Test the compiled style in grayscale and under common color-vision simulations."
+            ]
+        }
+    },
+    "sources": [
+        {
+            "type": "reference-image",
+            "title": "Nouvelle version interactive de la carte de Cassini sur le Géoportail",
+            "creator_or_publisher": "French national mapping and BnF",
+            "rights": "Public press information; map rights governed by BnF/French national mapping terms",
+            "relevance": "Describes the digitized hand-colored BnF exemplar, 180 joined sheets, and Géoportail access. Citation: https://www.French national mapping.fr/institut/espace-presse/une-nouvelle-version-interactive-de-la-carte-de-cassini-sur-le-geoportail",
+            "year": "2024",
+            "holding_institution": "French national mapping / BnF"
+        },
+        {
+            "type": "reference-map",
+            "title": "Cassini Map media group",
+            "creator_or_publisher": "David Rumsey Historical Map Collection",
+            "rights": "Check collection rights for reuse",
+            "relevance": "Multiple composite Cassini examples; notes repeatedly identify engraved maps and relief shown by hachures.",
+            "year": "1750-1815 originals; digital collection contemporary",
+            "url": "https://www.davidrumsey.com/luna/servlet/view/group/817",
+            "holding_institution": "David Rumsey Map Collection"
+        },
+        {
+            "type": "reference-image",
+            "title": "Les Cassini, cartes géométriques de la France",
+            "creator_or_publisher": "Institut Paris Région",
+            "rights": "Public web article; check reuse terms",
+            "relevance": "Discusses sheet marginal information, double numbering, distances, scale bars, hachures, roads, and forest/park alleys.",
+            "year": "contemporary article",
+            "url": "https://www.institutparisregion.fr/nos-travaux/publications/les-cassini-cartes-geometriques-de-la-france/",
+            "holding_institution": "Institut Paris Région"
+        },
+        {
+            "type": "textual-source",
+            "title": "Une nouvelle version interactive de la carte de Cassini...",
+            "creator_or_publisher": "French national mapping / BnF",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Confirms 1756-1815 date range, first general detailed map of the kingdom, 180 joined sheets, and the hand-colored BnF exemplar. Citation: https://www.French national mapping.fr/institut/espace-presse/une-nouvelle-version-interactive-de-la-carte-de-cassini-sur-le-geoportail",
+            "year": "2024"
+        },
+        {
+            "type": "textual-source",
+            "title": "Cassini Map",
+            "creator_or_publisher": "David Rumsey Historical Map Collection",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Provides collection-level metadata for Cassini sheets and composites, including engraving and hachured relief.",
+            "year": "digital collection",
+            "url": "https://www.davidrumsey.com/luna/servlet/view/group/817"
+        },
+        {
+            "type": "textual-source",
+            "title": "Revolutionary cartography and the Cassini Map of France",
+            "creator_or_publisher": "New York Public Library",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Provides historical interpretation of the Cassini map as a systematic state-wide survey based on triangulation.",
+            "year": "2022",
+            "url": "https://www.nypl.org/blog/2022/10/18/revolutionary-cartography-and-cassini-map-france"
+        }
+    ],
+    "rights": {
+        "brief_license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "copyright": "© 2026 Ian Muehlenhaus",
+        "creators": [
+            "Ian Muehlenhaus"
+        ],
+        "attribution_parties": [
+            "PromptCartography.com",
+            "NLGIS.ai",
+            "WebMapper.org"
+        ],
+        "credit_line": "Design brief: PromptCartography.com, NLGIS.ai, and WebMapper.org (CC BY 4.0).",
+        "preferred_map_credit": "Design: nlgis.ai",
+        "modification_notice_required": true,
+        "no_endorsement": true,
+        "source_rights_notice": "This license covers the design brief only; cited maps, scans, data, marks, typefaces, interfaces, and artwork retain their own rights."
+    },
+    "provenance": {
+        "created": "2026-07-02",
+        "modified": "2026-10-04",
+        "review_status": "draft",
+        "method": "Deterministically migrated from the frozen Prompt Cartography library with curated identity and intent profiles using TDBS migrator 0.1.0.",
+        "migrated_from": "promptcartography:french_cassini_map_design_schema.json",
+        "source_sha256": "8b8caf92bcb72dddad019d61d9270cac1041b9b2c04e012bb8ba42c517533598",
+        "reviewers": [],
+        "notes": "Generated draft requiring cartographic, naming, attribution, source-rights, and cultural-sensitivity review before approval."
+    },
+    "provider_compatibility": {
+        "maptiler": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned MapTiler source/template contract."
+        },
+        "arcgis": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned ArcGIS VectorTileServer style."
+        },
+        "mapbox": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against the selected Mapbox style contract."
+        },
+        "maplibre": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a known source schema."
+        }
+    },
+    "extensions": {
+        "org.promptcartography.style-dna": {
+            "version": "1.0.0",
+            "vector": {
+                "modern_vs_historic": 50,
+                "minimal_vs_ornate": 70,
+                "scientific_vs_artistic": 35,
+                "reference_vs_thematic": 50,
+                "print_vs_interactive": 30,
+                "light_vs_dark": 50,
+                "formal_vs_playful": 50,
+                "muted_vs_vivid": 38,
+                "flat_vs_textured": 70,
+                "geometric_vs_organic": 50,
+                "sparse_vs_dense": 50,
+                "static_vs_animated": 20,
+                "generalized_vs_detailed": 68,
+                "neutral_vs_emotive": 50,
+                "low_vs_high_interaction": 20
+            },
+            "confidence": 0.77,
+            "source": "rule_based",
+            "review_status": "draft",
+            "rationale": {
+                "minimal_vs_ornate": "Ornate or vintage personality cue.",
+                "flat_vs_textured": "Terrain or relief emphasis suggests texture.",
+                "scientific_vs_artistic": "Scientific, technical, governmental, or academic cues.",
+                "muted_vs_vivid": "Muted, neutral, earth-tone, or limited-color cue.",
+                "low_vs_high_interaction": "Static interaction level.",
+                "print_vs_interactive": "Static styles are usually print-oriented.",
+                "static_vs_animated": "Static interaction level.",
+                "generalized_vs_detailed": "Detailed reference map-type cue."
+            },
+            "last_modified": "2026-07-12"
+        }
+    }
+}

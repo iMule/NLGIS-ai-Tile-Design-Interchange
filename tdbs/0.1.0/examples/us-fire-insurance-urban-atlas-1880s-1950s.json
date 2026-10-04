@@ -1,0 +1,640 @@
+{
+    "$schema": "../../../spec/0.1.0/tdbs.schema.json",
+    "spec_version": "0.1.0",
+    "id": "us-fire-insurance-urban-atlas-1880s-1950s",
+    "name": {
+        "canonical": "US Fire Insurance Urban Atlas — 1880s–1950s",
+        "alias": "The Block-by-Block Risk Ledger",
+        "genre": "urban fire-insurance atlas map",
+        "era": "1880s–1950s",
+        "inspiration_notice": "An unofficial interpretive brief derived from source research and intended to guide original map styling; it does not reproduce or imply endorsement by referenced institutions, publishers, or cartographers.",
+        "organization_or_origin": [
+            "United States"
+        ]
+    },
+    "description": {
+        "summary": "A large-scale urban atlas style built around individual buildings, parcels, streets, materials, fire risk, occupancy, utilities, and dense abbreviations. The map should feel like a precise underwriting document: pastel color-coded buildings on cream paper, black parcel/street geometry, small technical notes, and sheet-level marginalia. Its charm comes from obsessive information density, not decorative flourish.",
+        "design_principle": "Make buildings and fire-risk attributes the primary visual subject. Use pastel fills to encode construction materials, thin black linework to structure parcels and streets, and compact annotations to reveal occupancy, stories, roof types, hydrants, walls, tanks, elevators, and industrial hazards.",
+        "historical_context": "fire insurance atlas Fire Insurance Maps were prepared for insurance companies and underwriters to assess fire risk in American towns and cities. Sheets typically covered only a few blocks at large scale and recorded building footprints, construction materials, number of stories, occupancy, street widths, hydrants, water mains, fire alarm boxes, industrial hazards, and other risk-relevant urban details. large-scale lithographic atlas sheets hand-applied or printed color tints bound city atlases",
+        "geographic_origin": [
+            "United States"
+        ],
+        "avoid_misclassification_with": [
+            "19th-Century County Atlas / Landowner Map",
+            "Baedeker city plan",
+            "Victorian railway map",
+            "modern parcel viewer",
+            "zoning map",
+            "fantasy city map",
+            "real estate portal map",
+            "generic historical parchment map"
+        ]
+    },
+    "classification": {
+        "ranked_intents": [
+            {
+                "rank": 1,
+                "intent": "reference",
+                "role": "primary",
+                "score": 98,
+                "rationale": "General geographic orientation, feature lookup, and broad contextual reading. This brief is ranked 1 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 2,
+                "intent": "operational-monitoring",
+                "role": "primary",
+                "score": 90,
+                "rationale": "Live incidents, assets, logistics, status, and dashboard-oriented situational awareness. This brief is ranked 2 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 3,
+                "intent": "educational-interpretive",
+                "role": "primary",
+                "score": 89,
+                "rationale": "Teaching, heritage, visitor interpretation, public history, and exhibition use. This brief is ranked 3 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 4,
+                "intent": "human-geography",
+                "role": "hybrid",
+                "score": 86,
+                "rationale": "Settlements, boundaries, culture, population, political geography, and human networks. This brief is ranked 4 with a hybrid role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 5,
+                "intent": "thematic",
+                "role": "primary",
+                "score": 82,
+                "rationale": "Communication of a geographic variable, category, relationship, or argument. This brief is ranked 5 with a primary role based on its source classification and curated migration profile."
+            }
+        ],
+        "scales": [
+            "local",
+            "site"
+        ],
+        "label_density": "dense",
+        "terrain_emphasis": "none",
+        "dimensionality": "2d",
+        "interaction_fit": [
+            "static",
+            "exploratory",
+            "operational"
+        ],
+        "projection_bias": "local-planar",
+        "mobile_fit": "low",
+        "implementation_complexity": "expert",
+        "subjects": [
+            "building footprints",
+            "construction materials",
+            "parcel and block geometry",
+            "street names and widths",
+            "building use and occupancy",
+            "industrial facilities and hazards",
+            "fire hydrants and alarm boxes",
+            "water mains and private supplies",
+            "roof materials and story heights",
+            "historic business names and civic buildings"
+        ],
+        "visual_keywords": [
+            "vintage",
+            "technical",
+            "ornate",
+            "handcrafted",
+            "authoritative",
+            "analytical"
+        ]
+    },
+    "design_tokens": {
+        "colors": {
+            "palette": [
+                {
+                    "name": "Aged sheet cream",
+                    "value": "#F4E9CF",
+                    "roles": [
+                        "background",
+                        "land"
+                    ],
+                    "notes": "Should resemble slightly yellowed atlas paper without becoming fantasy parchment."
+                },
+                {
+                    "name": "Frame yellow",
+                    "value": "#F2D35E",
+                    "roles": [
+                        "buildings"
+                    ],
+                    "notes": "Canonical fire insurance atlas association: yellow for frame/wood construction."
+                },
+                {
+                    "name": "Brick pink",
+                    "value": "#D98A8A",
+                    "roles": [
+                        "buildings"
+                    ],
+                    "notes": "Often described as pink/red for brick."
+                },
+                {
+                    "name": "Stone/concrete blue",
+                    "value": "#8CB7D9",
+                    "roles": [
+                        "general"
+                    ],
+                    "notes": "Use with abbreviations when distinguishing concrete block from stone."
+                },
+                {
+                    "name": "Fireproof olive",
+                    "value": "#9B9A5F",
+                    "roles": [
+                        "labels"
+                    ],
+                    "notes": "Green/olive meanings vary; explain in local legend."
+                },
+                {
+                    "name": "Iron/metal gray",
+                    "value": "#9A9A92",
+                    "roles": [
+                        "general"
+                    ],
+                    "notes": "Keep pale enough for labels."
+                },
+                {
+                    "name": "Brown fireproof",
+                    "value": "#B48A5A",
+                    "roles": [
+                        "buildings"
+                    ],
+                    "notes": "Optional; do not overuse if local key favors olive."
+                },
+                {
+                    "name": "Hydrant/water blue",
+                    "value": "#356FA8",
+                    "roles": [
+                        "water"
+                    ],
+                    "notes": "Slightly darker than building-material blue."
+                },
+                {
+                    "name": "Ink black",
+                    "value": "#25211C",
+                    "roles": [
+                        "labels",
+                        "buildings",
+                        "symbols"
+                    ],
+                    "notes": "Use warm black rather than pure digital black."
+                },
+                {
+                    "name": "Correction slip tan",
+                    "value": "#EAD7AC",
+                    "roles": [
+                        "buildings"
+                    ],
+                    "notes": "Optional texture element."
+                }
+            ],
+            "behavior": [
+                "Use color semantically to indicate construction material, not decorative category fills.",
+                "Keep building fills pastel and labels dark; never make fill colors so saturated that abbreviations become hard to read.",
+                "Use black linework and text over all building fills.",
+                "Use subtle paper-tone variation for sheet background but keep streets mostly unfilled cream.",
+                "When material classification is unknown, use unfilled cream or very pale neutral with a clear 'unknown' legend entry.",
+                "Legend color names should explain material meaning, not generic classes."
+            ],
+            "avoid": [
+                "neon colors",
+                "dark-mode backgrounds",
+                "rainbow choropleths",
+                "modern zoning-map opacity ramps",
+                "glossy gradients",
+                "terrain hypsometric palettes",
+                "corporate dashboard blues"
+            ]
+        },
+        "typography": {
+            "character": "Small, technical, serif-leaning or engraved-print-like typography with compact uppercase abbreviations. It should feel like lithographed urban-atlas lettering rather than a modern UI font.",
+            "font_families": [
+                "Libre Baskerville",
+                "Crimson Text",
+                "Georgia",
+                "Charter",
+                "Noto Serif",
+                "Source Serif 4",
+                "IBM Plex Serif",
+                "Arial Narrow"
+            ],
+            "fallback_strategy": "Prefer metrically stable, licensable fonts with the language coverage required by the map; preserve hierarchy when substitution is necessary.",
+            "rules": [
+                "Use abbreviations liberally but explain them in a key or popup.",
+                "Place street names in the street corridor, not detached like web basemap labels.",
+                "Fit building-use labels inside footprints when space permits; otherwise use short callouts.",
+                "Avoid large modern label halos; use small knockout boxes only when absolutely necessary.",
+                "Use rotated labels for narrow streets and buildings when it improves fit.",
+                "Do not use playful vintage fonts; fire insurance atlas is technical, not saloon-poster ornamental."
+            ]
+        },
+        "linework": [
+            "Crisp, warm-black, thin-to-medium technical linework with small variations for parcels, buildings, party walls, street edges, and hazards. The style should be precise and slightly lithographic, not vector-tile slick.",
+            "parcel lines: 0.4-0.7 px warm black",
+            "building outlines: 0.8-1.2 px warm black, usually stronger than parcel lines",
+            "block boundaries: 1.0-1.5 px warm black",
+            "sheet/neatline borders: double or single black rules",
+            "adjoining-sheet references: small labeled arrows or edge notes",
+            "water features: pale blue fill with ink-black or blue-black outline",
+            "water mains: thin blue lines with diameter annotations",
+            "hydrants: small blue point symbols with clear legend",
+            "avoid scenic river styling; water is a risk/utility feature here",
+            "streets: mostly cream background corridors bounded by parcel/building edges",
+            "railroads: black double line or line with cross-tie ticks",
+            "streetcar lines: thin line with distinctive ticks or label",
+            "alleys: narrow cream gaps or thin labeled corridors",
+            "do not use modern road casings unless intentionally translating street hierarchy",
+            "do not use contours or hillshade except in rare peripheral contexts"
+        ],
+        "fills": [
+            "Use color semantically to indicate construction material, not decorative category fills.",
+            "Keep building fills pastel and labels dark; never make fill colors so saturated that abbreviations become hard to read.",
+            "Use black linework and text over all building fills.",
+            "Use subtle paper-tone variation for sheet background but keep streets mostly unfilled cream.",
+            "When material classification is unknown, use unfilled cream or very pale neutral with a clear 'unknown' legend entry.",
+            "Legend color names should explain material meaning, not generic classes.",
+            "street centerlines or street corridors should be custom drawn in fire insurance atlas style, not borrowed from a modern basemap",
+            "parcel fabric and building footprints are primary",
+            "streets remain mostly cream paper with black street names",
+            "block numbers and house numbers may be shown",
+            "include rail lines, alleys, yards, wharves, or industrial trackage when relevant",
+            "construction material classification",
+            "building use and occupancy",
+            "fire risk and fire-protection infrastructure"
+        ],
+        "labels": [
+            "Use abbreviations liberally but explain them in a key or popup.",
+            "Place street names in the street corridor, not detached like web basemap labels.",
+            "Fit building-use labels inside footprints when space permits; otherwise use short callouts.",
+            "Avoid large modern label halos; use small knockout boxes only when absolutely necessary.",
+            "Use rotated labels for narrow streets and buildings when it improves fit.",
+            "Do not use playful vintage fonts; fire insurance atlas is technical, not saloon-poster ornamental.",
+            "street names inside corridors",
+            "house numbers near buildings",
+            "building use labels inside footprints",
+            "story counts as numerals",
+            "construction abbreviations",
+            "roof and sprinkler abbreviations",
+            "industrial-hazard notes",
+            "block numbers",
+            "sheet references"
+        ],
+        "symbols": [
+            "small hydrant symbols",
+            "fire alarm boxes",
+            "water mains with diameter labels",
+            "sprinkler symbols or text abbreviations",
+            "chimneys, boilers, tanks, elevators, and pumps",
+            "wall openings and fire doors",
+            "roof-material symbols",
+            "dashed interior divisions",
+            "railroad cross-tie marks"
+        ],
+        "terrain": [
+            "do not use contours or hillshade except in rare peripheral contexts",
+            "terrain should be absent; this is building-scale urban insurance mapping",
+            "if slope matters, annotate directly rather than using terrain visualization",
+            "omit relief, hillshade, contours, and elevation tints",
+            "urban terrain is not the visual subject",
+            "show grade, embankment, or retaining walls only if part of the historic/building context"
+        ],
+        "materiality": [
+            "warm cream, light buff, or slightly yellowed atlas paper",
+            "subtle paper grain, faint scan noise, and very light mottling; do not use heavy fantasy parchment texture",
+            "slight lithographic softness",
+            "faint color misregistration",
+            "scanned sheet edges",
+            "library stamp or sheet number cues",
+            "paste-on correction slips",
+            "minor ink irregularity",
+            "light yellowing",
+            "small stains near edges",
+            "fold or binding shadows if mimicking an atlas page",
+            "subtle edge darkening",
+            "avoid burnt edges or pirate-map distressing",
+            "Use CSS background texture with very low opacity."
+        ]
+    },
+    "layer_semantics": {
+        "background": {
+            "visibility": "required",
+            "priority": 92,
+            "treatment": [
+                "Use color semantically to indicate construction material, not decorative category fills.",
+                "Keep building fills pastel and labels dark; never make fill colors so saturated that abbreviations become hard to read.",
+                "Use black linework and text over all building fills.",
+                "Use subtle paper-tone variation for sheet background but keep streets mostly unfilled cream.",
+                "street centerlines or street corridors should be custom drawn in fire insurance atlas style, not borrowed from a modern basemap",
+                "parcel fabric and building footprints are primary",
+                "streets remain mostly cream paper with black street names"
+            ]
+        },
+        "land": {
+            "visibility": "required",
+            "priority": 72,
+            "treatment": [
+                "street centerlines or street corridors should be custom drawn in fire insurance atlas style, not borrowed from a modern basemap",
+                "parcel fabric and building footprints are primary",
+                "streets remain mostly cream paper with black street names",
+                "block numbers and house numbers may be shown",
+                "include rail lines, alleys, yards, wharves, or industrial trackage when relevant"
+            ]
+        },
+        "water": {
+            "visibility": "required",
+            "priority": 82,
+            "treatment": [
+                "show rivers, canals, docks, ponds, or shoreline only where they affect urban layout or fire risk",
+                "use pale blue water fill with simple linework",
+                "show water mains and hydrants as fire-protection infrastructure",
+                "annotate pipe sizes where data supports it"
+            ]
+        },
+        "terrain": {
+            "visibility": "preferred",
+            "priority": 55,
+            "treatment": [
+                "omit relief, hillshade, contours, and elevation tints",
+                "urban terrain is not the visual subject",
+                "show grade, embankment, or retaining walls only if part of the historic/building context"
+            ]
+        },
+        "boundaries": {
+            "visibility": "preferred",
+            "priority": 67,
+            "treatment": [
+                "parcel lines",
+                "block boundaries",
+                "building footprint outlines",
+                "party walls and fire walls",
+                "lot divisions",
+                "municipal or ward boundaries only if relevant and subdued",
+                "sheet boundaries and adjoining-sheet references"
+            ]
+        },
+        "transportation": {
+            "visibility": "required",
+            "priority": 70,
+            "treatment": [
+                "street names and widths",
+                "alleys",
+                "railroads and sidings",
+                "streetcar lines where relevant",
+                "bridges and crossings",
+                "do not symbolize roads like modern highway maps"
+            ]
+        },
+        "buildings": {
+            "visibility": "preferred",
+            "priority": 66,
+            "treatment": [
+                "the settlement is usually represented by its street/building fabric rather than point symbols",
+                "city/town name belongs in sheet title or index",
+                "public buildings, churches, schools, factories, depots, and named commercial buildings receive footprint-level labels"
+            ]
+        },
+        "places": {
+            "visibility": "required",
+            "priority": 90,
+            "treatment": [
+                "street names inside corridors",
+                "house numbers near buildings",
+                "building use labels inside footprints",
+                "story counts as numerals",
+                "construction abbreviations",
+                "roof and sprinkler abbreviations",
+                "industrial-hazard notes",
+                "block numbers",
+                "sheet references",
+                "the settlement is usually represented by its street/building fabric rather than point symbols"
+            ]
+        },
+        "pois": {
+            "visibility": "optional",
+            "priority": 46,
+            "treatment": [
+                "small hydrant symbols",
+                "fire alarm boxes",
+                "water mains with diameter labels",
+                "sprinkler symbols or text abbreviations",
+                "chimneys, boilers, tanks, elevators, and pumps",
+                "wall openings and fire doors",
+                "roof-material symbols",
+                "dashed interior divisions",
+                "railroad cross-tie marks"
+            ]
+        },
+        "thematic_overlay": {
+            "visibility": "required",
+            "priority": 100,
+            "treatment": [
+                "construction material classification",
+                "building use and occupancy",
+                "fire risk and fire-protection infrastructure",
+                "historic business type",
+                "industrial hazard type",
+                "building height/stories",
+                "change over time via correction pasters or side-by-side sheets",
+                "environmental site-history risk categories"
+            ]
+        }
+    },
+    "constraints": {
+        "required": [
+            "Make buildings and fire-risk attributes the primary visual subject. Use pastel fills to encode construction materials, thin black linework to structure parcels and streets, and compact annotations to reveal occupancy, stories, roof types, hydrants, walls, tanks, elevators, and industrial hazards."
+        ],
+        "preferred": [
+            "Make building footprints the main visual layer.",
+            "Represent streets as negative space/corridors with labels, not modern cased road symbols.",
+            "Use dense but zoom-aware annotation; reveal detail progressively.",
+            "Use popups to decode, not to replace, the visual map language.",
+            "Do not use modern Web Mercator road-tile styling as the dominant aesthetic.",
+            "Do not apply choropleth county/state fills; this is building-scale mapping.",
+            "Do not use decorative parchment, pirate-map fonts, or steampunk ornament as shortcuts for history.",
+            "Do not make color arbitrary; color must encode material or clearly declared modern categories.",
+            "Do not show too much citywide detail at once; fire insurance atlas style is block/sheet scale.",
+            "Use vector building footprints with data-driven fill colors for material/use.",
+            "Use scale-dependent rendering: index map at low zoom, block labels at medium zoom, building annotations at high zoom.",
+            "Use optional hatching or pattern overlays to support accessibility and material ambiguity."
+        ],
+        "avoid": [
+            "19th-Century County Atlas / Landowner Map",
+            "Baedeker city plan",
+            "Victorian railway map",
+            "modern parcel viewer",
+            "zoning map",
+            "fantasy city map",
+            "real estate portal map",
+            "generic historical parchment map",
+            "neon colors",
+            "dark-mode backgrounds",
+            "rainbow choropleths",
+            "modern zoning-map opacity ramps",
+            "glossy gradients",
+            "terrain hypsometric palettes",
+            "corporate dashboard blues"
+        ],
+        "unsupported": [
+            "Exact facsimile reproduction of a named source map, protected artwork, logo, seal, interface, or trade dress.",
+            "Provider-specific behavior that has not been verified against a pinned source and style contract."
+        ],
+        "accessibility": {
+            "color_independence": "Because the historical system relies heavily on color, reinforce material classes with abbreviations, outline treatments, hatching, or popup text. Provide a readable legend and avoid relying on red/pink versus yellow alone for critical meaning.",
+            "contrast": "Preserve readable contrast for labels, lines, and critical symbols at intended zoom levels.",
+            "minimum_text_size": "Adapt historical or print typography to a practical screen-reading threshold.",
+            "additional": [
+                "Test the compiled style in grayscale and under common color-vision simulations."
+            ]
+        }
+    },
+    "sources": [
+        {
+            "type": "reference-map",
+            "title": "fire insurance atlas Maps Collection",
+            "creator_or_publisher": "Library of Congress Geography and Map Division",
+            "rights": "Varies by item; many historical sheets are public domain or rights-not-restricted according to item records",
+            "relevance": "Primary visual source for sheet layout, color-coded building materials, dense abbreviations, index maps, and archival map-page presentation. Citation: https://www.loc.gov/collections/fire insurance atlas-maps/",
+            "year": "1867-1999",
+            "holding_institution": "Library of Congress"
+        },
+        {
+            "type": "reference-map",
+            "title": "How to Interpret fire insurance atlas Maps",
+            "creator_or_publisher": "Library of Congress Research Guides",
+            "rights": "Library research guide",
+            "relevance": "Explains common fire insurance atlas colors, symbols, construction materials, and interpretive conventions. Citation: https://guides.loc.gov/fire-insurance-maps/fire insurance atlas-interpreting",
+            "year": "2026",
+            "holding_institution": "Library of Congress"
+        },
+        {
+            "type": "reference-map",
+            "title": "fire insurance atlas Fire Insurance Maps",
+            "creator_or_publisher": "University of Florida Map & Imagery Library",
+            "rights": "Educational collection guide",
+            "relevance": "Summarizes details shown on fire insurance atlas maps including firewalls, windows, doors, sprinkler systems, roofing, street widths, hydrants, and material colors. Citation: https://maps.uflib.ufl.edu/collections/fire insurance atlass/",
+            "year": "n.d.",
+            "holding_institution": "University of Florida"
+        },
+        {
+            "type": "reference-map",
+            "title": "How to Read fire insurance atlas Fire Insurance Maps",
+            "creator_or_publisher": "University of Virginia Library",
+            "rights": "Educational guide",
+            "relevance": "Useful concise summary of building material color codes and building symbol conventions. Citation: https://fisher.lib.virginia.edu/collections/maps/fire insurance atlas/web/details.html",
+            "year": "n.d.",
+            "holding_institution": "University of Virginia Library"
+        },
+        {
+            "type": "textual-source",
+            "title": "About this Collection: fire insurance atlas Maps",
+            "creator_or_publisher": "Library of Congress",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Describes the fire insurance atlas collection, its size, purpose, and color/material conventions. Citation: https://www.loc.gov/collections/fire insurance atlas-maps/about-this-collection/",
+            "year": "n.d."
+        },
+        {
+            "type": "textual-source",
+            "title": "A Resource Guide: fire insurance atlas Fire Insurance Co. Maps",
+            "creator_or_publisher": "Library of Congress",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Gives collection date range and summarizes fire insurance atlas maps as a uniform large-scale series depicting commercial, industrial, and residential sections. Citation: https://guides.loc.gov/fire-insurance-maps/fire insurance atlas",
+            "year": "2026"
+        },
+        {
+            "type": "textual-source",
+            "title": "Fire Insurance Maps Research Guide",
+            "creator_or_publisher": "Big Ten Academic Alliance Geoportal",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Explains sheet index structure, few-block sheet coverage, color coding, and paste-on updates.",
+            "year": "n.d.",
+            "url": "https://gin.btaa.org/guides/fire-insurance/"
+        }
+    ],
+    "rights": {
+        "brief_license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "copyright": "© 2026 Ian Muehlenhaus",
+        "creators": [
+            "Ian Muehlenhaus"
+        ],
+        "attribution_parties": [
+            "PromptCartography.com",
+            "NLGIS.ai",
+            "WebMapper.org"
+        ],
+        "credit_line": "Design brief: PromptCartography.com, NLGIS.ai, and WebMapper.org (CC BY 4.0).",
+        "preferred_map_credit": "Design: nlgis.ai",
+        "modification_notice_required": true,
+        "no_endorsement": true,
+        "source_rights_notice": "This license covers the design brief only; cited maps, scans, data, marks, typefaces, interfaces, and artwork retain their own rights."
+    },
+    "provenance": {
+        "created": "2026-07-02",
+        "modified": "2026-10-04",
+        "review_status": "draft",
+        "method": "Deterministically migrated from the frozen Prompt Cartography library with curated identity and intent profiles using TDBS migrator 0.1.0.",
+        "migrated_from": "promptcartography:sanborn_fire_insurance_map_design_schema.json",
+        "source_sha256": "6c6cbce32d16cf5e717903138e4a1dccf74c64e48e6f017dee0f281ef82274ef",
+        "reviewers": [],
+        "notes": "Generated draft requiring cartographic, naming, attribution, source-rights, and cultural-sensitivity review before approval."
+    },
+    "provider_compatibility": {
+        "maptiler": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned MapTiler source/template contract."
+        },
+        "arcgis": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned ArcGIS VectorTileServer style."
+        },
+        "mapbox": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against the selected Mapbox style contract."
+        },
+        "maplibre": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a known source schema."
+        }
+    },
+    "extensions": {
+        "org.promptcartography.style-dna": {
+            "version": "1.0.0",
+            "vector": {
+                "modern_vs_historic": 45,
+                "minimal_vs_ornate": 70,
+                "scientific_vs_artistic": 35,
+                "reference_vs_thematic": 50,
+                "print_vs_interactive": 30,
+                "light_vs_dark": 50,
+                "formal_vs_playful": 35,
+                "muted_vs_vivid": 38,
+                "flat_vs_textured": 58,
+                "geometric_vs_organic": 50,
+                "sparse_vs_dense": 50,
+                "static_vs_animated": 20,
+                "generalized_vs_detailed": 68,
+                "neutral_vs_emotive": 50,
+                "low_vs_high_interaction": 20
+            },
+            "confidence": 0.8,
+            "source": "rule_based",
+            "review_status": "draft",
+            "rationale": {
+                "modern_vs_historic": "Older publication traditions lean historic.",
+                "minimal_vs_ornate": "Ornate or vintage personality cue.",
+                "flat_vs_textured": "Handcrafted cue suggests texture and human mark-making.",
+                "scientific_vs_artistic": "Scientific, technical, governmental, or academic cues.",
+                "formal_vs_playful": "Formal institutional or academic cue.",
+                "muted_vs_vivid": "Muted, neutral, earth-tone, or limited-color cue.",
+                "low_vs_high_interaction": "Static interaction level.",
+                "print_vs_interactive": "Static styles are usually print-oriented.",
+                "static_vs_animated": "Static interaction level.",
+                "generalized_vs_detailed": "Detailed reference map-type cue."
+            },
+            "last_modified": "2026-07-12"
+        }
+    }
+}

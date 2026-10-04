@@ -1,0 +1,30 @@
+{
+  "spec_version": "0.1.0",
+  "intents": {
+    "reference": "General geographic orientation, feature lookup, and broad contextual reading.",
+    "navigation": "Route following, movement planning, and wayfinding.",
+    "thematic": "Communication of a geographic variable, category, relationship, or argument.",
+    "data-visualization": "Quiet geographic context for dense analytical overlays.",
+    "outdoors-recreation": "Trails, parks, access, recreation, and field use.",
+    "human-geography": "Settlements, boundaries, culture, population, political geography, and human networks.",
+    "physical-environmental": "Hydrography, ecology, climate, land cover, and natural systems.",
+    "terrain-relief": "Elevation, landform, contours, hillshade, bathymetry, and relief as the principal subject.",
+    "editorial-narrative": "News, explanation, persuasion, annotation, and story-led mapping.",
+    "operational-monitoring": "Live incidents, assets, logistics, status, and dashboard-oriented situational awareness.",
+    "schematic-network": "Topology, routes, flows, or networks with potentially simplified or distorted geometry.",
+    "educational-interpretive": "Teaching, heritage, visitor interpretation, public history, and exhibition use."
+  },
+  "roles": ["context", "primary", "hybrid"],
+  "scales": ["global", "regional", "local", "site"],
+  "label_density": ["none", "sparse", "moderate", "dense"],
+  "terrain_emphasis": ["none", "context", "primary"],
+  "dimensionality": ["2d", "2.5d", "3d"],
+  "interaction_fit": ["static", "exploratory", "operational"],
+  "navigation_modes": ["road", "transit", "pedestrian", "cycling", "nautical", "air"],
+  "mobile_fit": ["low", "moderate", "high"],
+  "implementation_complexity": ["basic", "intermediate", "advanced", "expert"],
+  "projection_bias": ["none", "web-mercator", "equal-area", "conformal", "local-planar", "compromise", "schematic"],
+  "layer_visibility": ["required", "preferred", "optional", "suppress"],
+  "provider_status": ["verified", "limited", "unsupported", "not-tested"],
+  "review_status": ["draft", "reviewed", "approved", "deprecated"]
+}

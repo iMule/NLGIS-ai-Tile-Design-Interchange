@@ -1,0 +1,499 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tilestyler.com/spec/tdbs/0.1.0/tdbs.schema.json",
+  "title": "Tile Design Brief Schema",
+  "description": "Provider-neutral cartographic design intent for tiled and web maps.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "spec_version",
+    "id",
+    "name",
+    "description",
+    "classification",
+    "design_tokens",
+    "layer_semantics",
+    "constraints",
+    "sources",
+    "rights",
+    "provenance"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "spec_version": {
+      "const": "0.1.0"
+    },
+    "id": {
+      "$ref": "#/$defs/slug"
+    },
+    "name": {
+      "$ref": "#/$defs/name"
+    },
+    "description": {
+      "$ref": "#/$defs/description"
+    },
+    "classification": {
+      "$ref": "#/$defs/classification"
+    },
+    "design_tokens": {
+      "$ref": "#/$defs/designTokens"
+    },
+    "layer_semantics": {
+      "$ref": "#/$defs/layerSemantics"
+    },
+    "constraints": {
+      "$ref": "#/$defs/constraints"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "rights": {
+      "$ref": "#/$defs/rights"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "provider_compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maptiler": { "$ref": "#/$defs/providerCompatibility" },
+        "arcgis": { "$ref": "#/$defs/providerCompatibility" },
+        "mapbox": { "$ref": "#/$defs/providerCompatibility" },
+        "maplibre": { "$ref": "#/$defs/providerCompatibility" }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)+$"
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "shortString": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "stringList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" },
+      "uniqueItems": true
+    },
+    "name": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical", "alias", "genre", "era"],
+      "properties": {
+        "canonical": { "$ref": "#/$defs/shortString" },
+        "alias": { "$ref": "#/$defs/shortString" },
+        "organization_or_origin": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "genre": { "$ref": "#/$defs/shortString" },
+        "era": { "$ref": "#/$defs/shortString" },
+        "inspiration_notice": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "design_principle"],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 1600
+        },
+        "design_principle": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1200
+        },
+        "historical_context": {
+          "type": "string",
+          "maxLength": 2400
+        },
+        "geographic_origin": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "avoid_misclassification_with": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "reference",
+        "navigation",
+        "thematic",
+        "data-visualization",
+        "outdoors-recreation",
+        "human-geography",
+        "physical-environmental",
+        "terrain-relief",
+        "editorial-narrative",
+        "operational-monitoring",
+        "schematic-network",
+        "educational-interpretive"
+      ]
+    },
+    "rankedIntent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rank", "intent", "role", "score", "rationale"],
+      "properties": {
+        "rank": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "intent": { "$ref": "#/$defs/intent" },
+        "role": {
+          "type": "string",
+          "enum": ["context", "primary", "hybrid"]
+        },
+        "score": { "type": "integer", "minimum": 60, "maximum": 100 },
+        "rationale": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 500
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ranked_intents",
+        "scales",
+        "label_density",
+        "terrain_emphasis",
+        "dimensionality",
+        "interaction_fit",
+        "mobile_fit",
+        "implementation_complexity"
+      ],
+      "properties": {
+        "ranked_intents": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": { "$ref": "#/$defs/rankedIntent" }
+        },
+        "scales": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["global", "regional", "local", "site"]
+          }
+        },
+        "label_density": {
+          "type": "string",
+          "enum": ["none", "sparse", "moderate", "dense"]
+        },
+        "terrain_emphasis": {
+          "type": "string",
+          "enum": ["none", "context", "primary"]
+        },
+        "dimensionality": {
+          "type": "string",
+          "enum": ["2d", "2.5d", "3d"]
+        },
+        "interaction_fit": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["static", "exploratory", "operational"]
+          }
+        },
+        "navigation_modes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["road", "transit", "pedestrian", "cycling", "nautical", "air"]
+          }
+        },
+        "projection_bias": {
+          "type": "string",
+          "enum": ["none", "web-mercator", "equal-area", "conformal", "local-planar", "compromise", "schematic"]
+        },
+        "mobile_fit": {
+          "type": "string",
+          "enum": ["low", "moderate", "high"]
+        },
+        "implementation_complexity": {
+          "type": "string",
+          "enum": ["basic", "intermediate", "advanced", "expert"]
+        },
+        "subjects": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "visual_keywords": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slug" },
+          "uniqueItems": true
+        }
+      }
+    },
+    "colorToken": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value", "roles"],
+      "properties": {
+        "name": { "$ref": "#/$defs/shortString" },
+        "value": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?$"
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/slug" },
+          "uniqueItems": true
+        },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["character", "font_families", "rules"],
+      "properties": {
+        "character": { "$ref": "#/$defs/nonEmptyString" },
+        "font_families": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "fallback_strategy": { "$ref": "#/$defs/nonEmptyString" },
+        "rules": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "designTokens": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["colors", "typography", "linework", "fills", "labels", "symbols", "terrain", "materiality"],
+      "properties": {
+        "colors": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["palette", "behavior", "avoid"],
+          "properties": {
+            "palette": {
+              "type": "array",
+              "minItems": 2,
+              "items": { "$ref": "#/$defs/colorToken" }
+            },
+            "behavior": { "$ref": "#/$defs/stringList" },
+            "avoid": { "$ref": "#/$defs/stringList" }
+          }
+        },
+        "typography": { "$ref": "#/$defs/typography" },
+        "linework": { "$ref": "#/$defs/stringList" },
+        "fills": { "$ref": "#/$defs/stringList" },
+        "labels": { "$ref": "#/$defs/stringList" },
+        "symbols": { "$ref": "#/$defs/stringList" },
+        "terrain": { "$ref": "#/$defs/stringList" },
+        "materiality": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "layerDirective": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["visibility", "priority", "treatment"],
+      "properties": {
+        "visibility": {
+          "type": "string",
+          "enum": ["required", "preferred", "optional", "suppress"]
+        },
+        "priority": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "minzoom": { "type": "number", "minimum": 0, "maximum": 24 },
+        "maxzoom": { "type": "number", "minimum": 0, "maximum": 24 },
+        "treatment": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmptyString" },
+          "uniqueItems": true
+        },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "layerSemantics": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "background": { "$ref": "#/$defs/layerDirective" },
+        "land": { "$ref": "#/$defs/layerDirective" },
+        "landuse": { "$ref": "#/$defs/layerDirective" },
+        "water": { "$ref": "#/$defs/layerDirective" },
+        "bathymetry": { "$ref": "#/$defs/layerDirective" },
+        "terrain": { "$ref": "#/$defs/layerDirective" },
+        "vegetation": { "$ref": "#/$defs/layerDirective" },
+        "boundaries": { "$ref": "#/$defs/layerDirective" },
+        "transportation": { "$ref": "#/$defs/layerDirective" },
+        "buildings": { "$ref": "#/$defs/layerDirective" },
+        "places": { "$ref": "#/$defs/layerDirective" },
+        "pois": { "$ref": "#/$defs/layerDirective" },
+        "raster": { "$ref": "#/$defs/layerDirective" },
+        "thematic_overlay": { "$ref": "#/$defs/layerDirective" }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "preferred", "avoid", "unsupported", "accessibility"],
+      "properties": {
+        "required": { "$ref": "#/$defs/stringList" },
+        "preferred": { "$ref": "#/$defs/stringList" },
+        "avoid": { "$ref": "#/$defs/stringList" },
+        "unsupported": { "$ref": "#/$defs/stringList" },
+        "accessibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["color_independence", "contrast", "minimum_text_size"],
+          "properties": {
+            "color_independence": { "$ref": "#/$defs/nonEmptyString" },
+            "contrast": { "$ref": "#/$defs/nonEmptyString" },
+            "minimum_text_size": { "$ref": "#/$defs/nonEmptyString" },
+            "additional": { "$ref": "#/$defs/stringList" }
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "title", "creator_or_publisher", "rights", "relevance"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["reference-map", "reference-image", "textual-source", "dataset", "derived-analysis"]
+        },
+        "title": { "$ref": "#/$defs/shortString" },
+        "creator_or_publisher": { "$ref": "#/$defs/shortString" },
+        "year": {
+          "oneOf": [
+            { "type": "integer", "minimum": 0, "maximum": 9999 },
+            { "type": "string", "minLength": 1, "maxLength": 80 }
+          ]
+        },
+        "url": { "type": "string", "format": "uri" },
+        "holding_institution": { "$ref": "#/$defs/shortString" },
+        "rights": { "$ref": "#/$defs/nonEmptyString" },
+        "relevance": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "brief_license",
+        "license_url",
+        "copyright",
+        "creators",
+        "attribution_parties",
+        "credit_line",
+        "preferred_map_credit",
+        "modification_notice_required",
+        "no_endorsement",
+        "source_rights_notice"
+      ],
+      "properties": {
+        "brief_license": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9.-]+$"
+        },
+        "license_url": { "type": "string", "format": "uri" },
+        "copyright": { "$ref": "#/$defs/nonEmptyString" },
+        "creators": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "attribution_parties": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "credit_line": { "$ref": "#/$defs/nonEmptyString" },
+        "preferred_map_credit": { "$ref": "#/$defs/shortString" },
+        "modification_notice_required": { "type": "boolean" },
+        "no_endorsement": { "type": "boolean" },
+        "source_rights_notice": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created", "modified", "review_status", "method"],
+      "properties": {
+        "created": { "type": "string", "format": "date" },
+        "modified": { "type": "string", "format": "date" },
+        "review_status": {
+          "type": "string",
+          "enum": ["draft", "reviewed", "approved", "deprecated"]
+        },
+        "method": { "$ref": "#/$defs/nonEmptyString" },
+        "migrated_from": { "type": "string", "format": "uri-reference" },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "reviewers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/shortString" },
+          "uniqueItems": true
+        },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "providerCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "notes"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["verified", "limited", "unsupported", "not-tested"]
+        },
+        "notes": { "$ref": "#/$defs/nonEmptyString" },
+        "contract_version": { "$ref": "#/$defs/shortString" },
+        "verified_artifact": { "type": "string", "format": "uri-reference" }
+      }
+    }
+  }
+}

@@ -1,0 +1,629 @@
+{
+    "$schema": "../../../spec/0.1.0/tdbs.schema.json",
+    "spec_version": "0.1.0",
+    "id": "us-wwii-newsmap-1940s",
+    "name": {
+        "canonical": "US WWII Newsmap — 1940s",
+        "alias": "The War Information Broadside",
+        "genre": "wartime news broadside map",
+        "era": "1940s",
+        "inspiration_notice": "An unofficial interpretive brief derived from source research and intended to guide original map styling; it does not reproduce or imply endorsement by referenced institutions, publishers, or cartographers.",
+        "organization_or_origin": [
+            "United States",
+            "U.S. War Department",
+            "Army Orientation Course",
+            "Army Service Forces / Army Information Branch",
+            "American newspaper and poster publishing"
+        ]
+    },
+    "description": {
+        "summary": "A poster-newspaper hybrid: one dominant map or several campaign maps surrounded by short news columns, datelines, numbered captions, monochrome photographs, inset maps, legends, week labels, and morale-building text. The look is urgent, public-information-oriented, and mechanically printed, with restrained wartime colors, dense annotation, and blunt graphic hierarchy.",
+        "design_principle": "Make the map read like a weekly war-room newspaper broadside: strategic geography first, short dispatches second, photos and insets as evidence, all in a disciplined poster grid.",
+        "historical_context": "The core reference is the U.S. War Department / Army Information Branch Newsmap series: weekly poster-size sheets published from 1942 to 1946 to inform and motivate service members, commonly combining maps of the previous week's military events with news briefs, photographs, graphics, and training or morale material. Related civilian/commercial news-map broadsides used a similar newspaper-poster grammar for public war news and home-front topics. government poster lithography / offset lithography newsprint halftone reproduction for photographs limited spot-color printing, often black plus muted red/orange/green/blue",
+        "geographic_origin": [
+            "United States",
+            "U.S. War Department",
+            "Army Orientation Course",
+            "Army Service Forces / Army Information Branch",
+            "American newspaper and poster publishing"
+        ],
+        "avoid_misclassification_with": [
+            "British Ministry of Information pictorial maps",
+            "German or Axis propaganda maps",
+            "Cold War civil defense posters",
+            "modern magazine infographic maps",
+            "illustrated reference atlas decorative atlas plates",
+            "pure tactical military topographic charts"
+        ]
+    },
+    "classification": {
+        "ranked_intents": [
+            {
+                "rank": 1,
+                "intent": "editorial-narrative",
+                "role": "primary",
+                "score": 98,
+                "rationale": "News, explanation, persuasion, annotation, and story-led mapping. This brief is ranked 1 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 2,
+                "intent": "educational-interpretive",
+                "role": "primary",
+                "score": 91,
+                "rationale": "Teaching, heritage, visitor interpretation, public history, and exhibition use. This brief is ranked 2 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 3,
+                "intent": "thematic",
+                "role": "primary",
+                "score": 88,
+                "rationale": "Communication of a geographic variable, category, relationship, or argument. This brief is ranked 3 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 4,
+                "intent": "human-geography",
+                "role": "hybrid",
+                "score": 77,
+                "rationale": "Settlements, boundaries, culture, population, political geography, and human networks. This brief is ranked 4 with a hybrid role based on its source classification and curated migration profile."
+            }
+        ],
+        "scales": [
+            "global",
+            "regional"
+        ],
+        "label_density": "moderate",
+        "terrain_emphasis": "context",
+        "dimensionality": "2d",
+        "interaction_fit": [
+            "static"
+        ],
+        "projection_bias": "compromise",
+        "mobile_fit": "low",
+        "implementation_complexity": "advanced",
+        "subjects": [
+            "weekly Allied and enemy military situations",
+            "Europe, North Africa, Pacific, China-Burma-India, Russia/Eastern Front, Italy, France, and Japan theater maps",
+            "shipping routes, bases, air raids, invasion arrows, fronts, occupied areas, and liberation progress",
+            "recognition cues for aircraft, ships, tanks, uniforms, ranks, and enemy equipment",
+            "war production, waste reduction, materiel, manpower, mobilization, supply, and morale"
+        ],
+        "visual_keywords": [
+            "newspaper",
+            "vintage",
+            "dramatic",
+            "high-contrast",
+            "urgent",
+            "serious"
+        ]
+    },
+    "design_tokens": {
+        "colors": {
+            "palette": [
+                {
+                    "name": "Aged Newsprint",
+                    "value": "#E7DDC8",
+                    "roles": [
+                        "background",
+                        "land",
+                        "water"
+                    ],
+                    "notes": "Use with subtle grain."
+                },
+                {
+                    "name": "Ink Black",
+                    "value": "#171411",
+                    "roles": [
+                        "boundaries",
+                        "labels",
+                        "symbols"
+                    ]
+                },
+                {
+                    "name": "Faded Army Green",
+                    "value": "#5F7A62",
+                    "roles": [
+                        "land"
+                    ]
+                },
+                {
+                    "name": "Muted War Orange",
+                    "value": "#C56A3A",
+                    "roles": [
+                        "selection",
+                        "symbols"
+                    ]
+                },
+                {
+                    "name": "Signal Red",
+                    "value": "#A73A2F",
+                    "roles": [
+                        "labels",
+                        "selection"
+                    ]
+                },
+                {
+                    "name": "Washed Navy Blue",
+                    "value": "#476A86",
+                    "roles": [
+                        "water"
+                    ]
+                },
+                {
+                    "name": "Drab Brown",
+                    "value": "#7C644A",
+                    "roles": [
+                        "terrain"
+                    ]
+                },
+                {
+                    "name": "Halftone Gray",
+                    "value": "#8C8981",
+                    "roles": [
+                        "labels"
+                    ]
+                }
+            ],
+            "behavior": [
+                "Use two to four spot colors plus black; restraint is authenticity.",
+                "Allow slight color misregistration by offsetting fills 0.5-1.5 px in web implementations.",
+                "Use flat fills, diagonal hatching, stipple, and overprint effects rather than gradients.",
+                "Reserve bright red/orange for conflict emphasis, arrows, occupied areas, or headline urgency.",
+                "Keep ocean/land contrast low enough that typography and arrows dominate."
+            ],
+            "avoid": [
+                "neon colors",
+                "modern saturated choropleth ramps",
+                "photorealistic terrain greens",
+                "pure RGB red/blue partisan modern palettes",
+                "large black-white-red schemes that evoke Axis propaganda rather than U.S. Newsmap style"
+            ]
+        },
+        "typography": {
+            "character": "Condensed newspaper sans and slab/serif headline hierarchy. Titles are blocky, compressed, and loud; body copy is small newspaper serif or utilitarian sans; map labels are all-caps or small caps with practical military clarity.",
+            "font_families": [
+                "Roboto Condensed",
+                "Oswald",
+                "Libre Franklin Condensed",
+                "Source Serif 4",
+                "IBM Plex Serif",
+                "Newsreader",
+                "Courier Prime"
+            ],
+            "fallback_strategy": "Prefer metrically stable, licensable fonts with the language coverage required by the map; preserve hierarchy when substitution is necessary.",
+            "rules": [
+                "Use a dominant masthead such as NEWSMAP, WAR NEWS MAP, or THE WAR THIS WEEK, but avoid exact issue imitation unless requested.",
+                "Use short active headlines: 'Allies Push Inland', 'Air Offensive Expands', 'Pacific Bases Tighten Ring'.",
+                "Body text should be arranged in narrow newspaper columns with justified or near-justified copy.",
+                "Use boxed captions, issue numbers, and source notes such as 'Prepared from public sources of information' for authenticity.",
+                "Never use playful retro display fonts; this is emergency public information, not a diner menu."
+            ]
+        },
+        "linework": [
+            "Crisp black or dark gray linework with uneven print texture. Boundaries and graticules are thin; arrows, front lines, and callout boxes are assertive. Lines should look drafted and mechanically reproduced, not anti-aliased to death.",
+            "national boundaries: thin black/gray solid or dashed lines, 0.5-1 px",
+            "occupied or contested areas: flat fill plus dashed outline or hatching",
+            "front lines: bold dashed or toothed line with labels and dates",
+            "uncertain positions: dotted or stippled line with explicit uncertainty note",
+            "oceans in very pale blue/gray or paper tone",
+            "coastlines emphasized in dark line",
+            "rivers thin and simplified; only include if relevant to campaign explanation",
+            "nautical routes as dashed lines with arrowheads or ship/anchor icons",
+            "railways as black lines with short ticks if central to logistics",
+            "major roads/routes as thin dark lines; omit modern highway symbology",
+            "supply routes as dashed arrows or segmented lines",
+            "air routes as arced dashed lines with aircraft silhouettes",
+            "use sparse hachures or hill shading for local campaign insets",
+            "avoid modern DEM hillshade unless posterized and converted to halftone/stipple",
+            "strategic world maps usually have little/no terrain"
+        ],
+        "fills": [
+            "Use two to four spot colors plus black; restraint is authenticity.",
+            "Allow slight color misregistration by offsetting fills 0.5-1.5 px in web implementations.",
+            "Use flat fills, diagonal hatching, stipple, and overprint effects rather than gradients.",
+            "Reserve bright red/orange for conflict emphasis, arrows, occupied areas, or headline urgency.",
+            "Keep ocean/land contrast low enough that typography and arrows dominate.",
+            "Simplified world or theater basemap with low-detail coastlines and country boundaries.",
+            "Use modified Van der Grinten, Mercator-like, polar azimuthal, or simple theater projections as appropriate; authenticity beats projection nerdery, but do not distort the user's data irresponsibly.",
+            "Land is usually flat color or paper tone; strategic overlays dominate.",
+            "Do not include modern basemap details, POI clutter, satellite imagery, or contemporary web-map roads.",
+            "bold invasion or advance arrows with flat arrowheads",
+            "dashed air/sea routes with icons",
+            "front lines with date ticks",
+            "occupied/liberated area fills"
+        ],
+        "labels": [
+            "Use a dominant masthead such as NEWSMAP, WAR NEWS MAP, or THE WAR THIS WEEK, but avoid exact issue imitation unless requested.",
+            "Use short active headlines: 'Allies Push Inland', 'Air Offensive Expands', 'Pacific Bases Tighten Ring'.",
+            "Body text should be arranged in narrow newspaper columns with justified or near-justified copy.",
+            "Use boxed captions, issue numbers, and source notes such as 'Prepared from public sources of information' for authenticity.",
+            "Never use playful retro display fonts; this is emergency public information, not a diner menu.",
+            "Use dense all-caps country/theater labels, small city labels, and boxed event labels.",
+            "Number map events and repeat the number in adjacent news copy.",
+            "Use arrows/pointers from captions to map locations; avoid modern tooltip-only identification.",
+            "Place short status labels directly on filled regions: ALLIED, ENEMY-HELD, LIBERATED, OCCUPIED, BASES, AIR ROUTE."
+        ],
+        "symbols": [
+            "Use black silhouette icons for aircraft, ships, tanks, factories, anchors, flags without extremist insignia, and supply crates.",
+            "Use simple numbered square/circle callouts rather than emoji-like pictograms.",
+            "Target/bombing symbols can use concentric rings or starbursts, but keep them diagrammatic, not sensationalized.",
+            "Use hatching/stippling for categories when color count is limited.",
+            "Never include swastikas, SS runes, Nazi eagles, fascist insignia, or hate-symbol replicas; describe enemy forces with neutral labels or generic silhouettes."
+        ],
+        "terrain": [
+            "use sparse hachures or hill shading for local campaign insets",
+            "avoid modern DEM hillshade unless posterized and converted to halftone/stipple",
+            "strategic world maps usually have little/no terrain",
+            "beach/landing charts may combine topographic lines, obstacle symbols, and hydrographic marks",
+            "Strategic world maps: omit terrain or use minimal texture.",
+            "Campaign insets: use hachures, sparse contour-like strokes, stippled relief, or gray hill drawings.",
+            "Beach/landing maps: allow chart-like relief, obstacles, shore profiles, and tactical annotations."
+        ],
+        "materiality": [
+            "warm off-white or tan newsprint with mild age variation, not sepia overload",
+            "fine paper fibers plus low-opacity halftone dot field; apply 3-8% opacity noise in web export",
+            "halftone dots on photos and gray fills",
+            "ink spread on heavy black type",
+            "minor misregistration of spot colors",
+            "fold lines or edge wear as subtle optional overlay",
+            "rubbed poster corners and scanning border only if output mimics archival facsimile",
+            "subtle foxing and slight yellowing acceptable",
+            "avoid heavy grunge, burns, blood stains, or theatrical distress",
+            "slight faded ink is more authentic than dramatic antique parchment",
+            "Add CSS ::before paper grain overlay using mix-blend-mode:multiply and pointer-events:none.",
+            "Convert photographs to grayscale with contrast boost and halftone simulation.",
+            "Use SVG patterns for hatching/stipple rather than image-heavy textures when possible.",
+            "Keep panels square-cornered with black hairline rules; border radius should be zero."
+        ]
+    },
+    "layer_semantics": {
+        "background": {
+            "visibility": "required",
+            "priority": 92,
+            "treatment": [
+                "Use two to four spot colors plus black; restraint is authenticity.",
+                "Allow slight color misregistration by offsetting fills 0.5-1.5 px in web implementations.",
+                "Use flat fills, diagonal hatching, stipple, and overprint effects rather than gradients.",
+                "Reserve bright red/orange for conflict emphasis, arrows, occupied areas, or headline urgency.",
+                "Simplified world or theater basemap with low-detail coastlines and country boundaries.",
+                "Use modified Van der Grinten, Mercator-like, polar azimuthal, or simple theater projections as appropriate; authenticity beats projection nerdery, but do not distort the user's data irresponsibly.",
+                "Land is usually flat color or paper tone; strategic overlays dominate."
+            ]
+        },
+        "land": {
+            "visibility": "required",
+            "priority": 72,
+            "treatment": [
+                "Simplified world or theater basemap with low-detail coastlines and country boundaries.",
+                "Use modified Van der Grinten, Mercator-like, polar azimuthal, or simple theater projections as appropriate; authenticity beats projection nerdery, but do not distort the user's data irresponsibly.",
+                "Land is usually flat color or paper tone; strategic overlays dominate.",
+                "Do not include modern basemap details, POI clutter, satellite imagery, or contemporary web-map roads."
+            ]
+        },
+        "water": {
+            "visibility": "required",
+            "priority": 82,
+            "treatment": [
+                "Water often pale blue, gray, or paper tone with dark coastlines.",
+                "Ocean routes may be dashed, arced, and labeled with distances or mission notes.",
+                "Use nautical naming in uppercase small caps where important."
+            ]
+        },
+        "terrain": {
+            "visibility": "preferred",
+            "priority": 55,
+            "treatment": [
+                "Strategic world maps: omit terrain or use minimal texture.",
+                "Campaign insets: use hachures, sparse contour-like strokes, stippled relief, or gray hill drawings.",
+                "Beach/landing maps: allow chart-like relief, obstacles, shore profiles, and tactical annotations."
+            ]
+        },
+        "boundaries": {
+            "visibility": "preferred",
+            "priority": 48,
+            "treatment": [
+                "Countries and occupied areas represented by flat fills and hatches rather than subtle gradients.",
+                "Fronts and changing control zones should be dated and visibly tied to dispatch text.",
+                "Use simplified colonial/1940s political geography only when the prompt requires historical accuracy; otherwise avoid implying modern sovereignty errors."
+            ]
+        },
+        "transportation": {
+            "visibility": "preferred",
+            "priority": 70,
+            "treatment": [
+                "Keep transport sparse; include only railways, sea lanes, convoy routes, invasion paths, air routes, or supply lines central to the story.",
+                "Use dashed lines, directional arrows, and silhouette icons rather than modern route shields.",
+                "For production maps, show flows from factories to ports/fronts with stout arrows and simple industrial symbols."
+            ]
+        },
+        "buildings": {
+            "visibility": "preferred",
+            "priority": 42,
+            "treatment": [
+                "Cities appear as black dots/squares with compact uppercase labels.",
+                "Capitals or targets may receive boxed labels or concentric target rings.",
+                "Do not include dense modern settlement hierarchy unless imitating a detailed local inset."
+            ]
+        },
+        "places": {
+            "visibility": "preferred",
+            "priority": 72,
+            "treatment": [
+                "Use dense all-caps country/theater labels, small city labels, and boxed event labels.",
+                "Number map events and repeat the number in adjacent news copy.",
+                "Use arrows/pointers from captions to map locations; avoid modern tooltip-only identification.",
+                "Place short status labels directly on filled regions: ALLIED, ENEMY-HELD, LIBERATED, OCCUPIED, BASES, AIR ROUTE.",
+                "Cities appear as black dots/squares with compact uppercase labels.",
+                "Capitals or targets may receive boxed labels or concentric target rings.",
+                "Do not include dense modern settlement hierarchy unless imitating a detailed local inset."
+            ]
+        },
+        "pois": {
+            "visibility": "optional",
+            "priority": 46,
+            "treatment": [
+                "Use black silhouette icons for aircraft, ships, tanks, factories, anchors, flags without extremist insignia, and supply crates.",
+                "Use simple numbered square/circle callouts rather than emoji-like pictograms.",
+                "Target/bombing symbols can use concentric rings or starbursts, but keep them diagrammatic, not sensationalized.",
+                "Use hatching/stippling for categories when color count is limited.",
+                "Never include swastikas, SS runes, Nazi eagles, fascist insignia, or hate-symbol replicas; describe enemy forces with neutral labels or generic silhouettes."
+            ]
+        },
+        "thematic_overlay": {
+            "visibility": "required",
+            "priority": 100,
+            "treatment": [
+                "bold invasion or advance arrows with flat arrowheads",
+                "dashed air/sea routes with icons",
+                "front lines with date ticks",
+                "occupied/liberated area fills",
+                "bombing/target rings or burst symbols",
+                "industrial output bars or pictorial unit counts in side panels",
+                "weekly progress markers keyed to dispatch columns"
+            ]
+        }
+    },
+    "constraints": {
+        "required": [
+            "Make the map read like a weekly war-room newspaper broadside: strategic geography first, short dispatches second, photos and insets as evidence, all in a disciplined poster grid."
+        ],
+        "preferred": [
+            "Build a newspaper-poster composition with a dominant map plus text/photo/inset panels.",
+            "Key map symbols to numbered news items or captions.",
+            "Include at least one inset map or photo/caption panel for full Newsmap flavor.",
+            "Do not turn the style into generic 'old parchment map' fantasy; this is mass-printed war information.",
+            "Do not present propaganda claims as factual analysis unless the map is explicitly labeled as a historical facsimile or interpretive style.",
+            "Use CSS grid for the whole broadsheet: masthead row, map field, inset/photo/news modules, footer/source line.",
+            "For MapLibre/web map library outputs, hide default zoom controls or restyle as black-on-paper square buttons.",
+            "Desktop: full broadsheet landscape layout with map occupying 50-65% of visual area.",
+            "Tablet: preserve poster frame; stack side panels beneath map if necessary.",
+            "Mobile portrait: switch to scrollable broadsheet sections with masthead, map, dispatches, insets, and legend; avoid shrinking body text below usability.",
+            "Mobile landscape: keep map dominant and put dispatch/photo panels in a bottom strip."
+        ],
+        "avoid": [
+            "British Ministry of Information pictorial maps",
+            "German or Axis propaganda maps",
+            "Cold War civil defense posters",
+            "modern magazine infographic maps",
+            "illustrated reference atlas decorative atlas plates",
+            "pure tactical military topographic charts",
+            "neon colors",
+            "modern saturated choropleth ramps",
+            "photorealistic terrain greens",
+            "pure RGB red/blue partisan modern palettes",
+            "large black-white-red schemes that evoke Axis propaganda rather than U.S. Newsmap style"
+        ],
+        "unsupported": [
+            "Exact facsimile reproduction of a named source map, protected artwork, logo, seal, interface, or trade dress.",
+            "Provider-specific behavior that has not been verified against a pinned source and style contract."
+        ],
+        "accessibility": {
+            "color_independence": "Because the historical palette is low-contrast and ink-limited, pair color with hatching, labels, arrows, and numbered references. Do not rely on red/green alone for meaning.",
+            "contrast": "Preserve readable contrast for labels, lines, and critical symbols at intended zoom levels.",
+            "minimum_text_size": "Adapt historical or print typography to a practical screen-reading threshold.",
+            "additional": [
+                "Test the compiled style in grayscale and under common color-vision simulations."
+            ]
+        }
+    },
+    "sources": [
+        {
+            "type": "reference-map",
+            "title": "World War II Newsmaps Collection",
+            "creator_or_publisher": "U.S. War Department / Army Information Branch; UNT Digital Library collection",
+            "rights": "See institution rights statement",
+            "relevance": "Complete domestic run; collection description identifies weekly world/local maps, war summaries, photographs, and variations.",
+            "year": "1942-1946",
+            "url": "https://digital.library.unt.edu/explore/collections/NMAP/",
+            "holding_institution": "UNT Libraries Government Documents Department"
+        },
+        {
+            "type": "reference-map",
+            "title": "Newsmap. Monday, February 1, 1943",
+            "creator_or_publisher": "Army Orientation Course",
+            "rights": "See institution rights statement",
+            "relevance": "Large world map keyed to text, time zones, inset maps of North Africa and Russia, ten photographs, reverse-side Soviet Infantry educational poster.",
+            "year": 1943,
+            "url": "https://digital.library.unt.edu/ark:/67531/metadc989/",
+            "holding_institution": "UNT Digital Library"
+        },
+        {
+            "type": "reference-map",
+            "title": "Newsmap. Monday, August 23, 1943",
+            "creator_or_publisher": "Army Orientation Course / Special Service Division",
+            "rights": "See institution rights statement",
+            "relevance": "Multiple theater maps, text on war fronts, photographs, and back-side China Army cultural/training feature.",
+            "year": 1943,
+            "url": "https://digital.library.unt.edu/ark:/67531/metadc963/",
+            "holding_institution": "UNT Digital Library"
+        },
+        {
+            "type": "reference-map",
+            "title": "Newsmap. For the Armed Forces. October 2, 1944",
+            "creator_or_publisher": "Army Service Forces, Army Information Branch",
+            "rights": "See institution rights statement",
+            "relevance": "Four maps on one sheet with France, Eastern Front, China, Pacific, Italy news and waste-reduction production/morale message on reverse.",
+            "year": 1944,
+            "url": "https://digital.library.unt.edu/ark:/67531/metadc904/",
+            "holding_institution": "UNT Digital Library"
+        },
+        {
+            "type": "reference-map",
+            "title": "Newsmap for the Armed Forces. September 17, 1945",
+            "creator_or_publisher": "Army Service Forces, Army Information Branch",
+            "rights": "See institution rights statement",
+            "relevance": "Postwar transition issue with maps of proposed U.S. Navy bases and Japan occupation, plus armed forces rating chart.",
+            "year": 1945,
+            "url": "https://digital.library.unt.edu/ark:/67531/metadc854/",
+            "holding_institution": "UNT Digital Library"
+        },
+        {
+            "type": "reference-image",
+            "title": "World news of the week, Monday, Dec. 30, 1940",
+            "creator_or_publisher": "News Map of the Week, Inc.",
+            "rights": "See institution rights statement",
+            "relevance": "Commercial illustrated color news map with textual weekly highlights; useful civilian comparator distinct from federal Newsmap.",
+            "year": 1940,
+            "url": "https://digital.library.unt.edu/ark:/67531/metadc137/",
+            "holding_institution": "UNT Digital Library"
+        },
+        {
+            "type": "reference-map",
+            "title": "Putting War on the Map",
+            "creator_or_publisher": "Library of Congress Magazine",
+            "rights": "See LOC rights statement",
+            "relevance": "Context for WWII cartographic genres, including propaganda delivery maps, invasion-threat arrows, and Omaha Beach chart maps.",
+            "year": 2020,
+            "url": "https://www.loc.gov/lcm/pdf/LCM_2020_0708.pdf",
+            "holding_institution": "Library of Congress"
+        },
+        {
+            "type": "reference-image",
+            "title": "Records of Headquarters Army Service Forces, RG 160: cartographic Records",
+            "creator_or_publisher": "National Archives and Records Administration",
+            "rights": "Public records guide",
+            "relevance": "Describes Newsmap as weekly maps, posters, and photographic views illustrating Allied/enemy military situations and civilian activities.",
+            "year": "1942-1946 / guide updated online",
+            "url": "https://www.archives.gov/research/guide-fed-records/groups/160.html",
+            "holding_institution": "NARA"
+        },
+        {
+            "type": "textual-source",
+            "title": "World War II Newsmaps",
+            "creator_or_publisher": "UNT Digital Library",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Collection-level description of issuing agency, frequency, content, variations, and distribution.",
+            "year": "collection page",
+            "url": "https://digital.library.unt.edu/explore/collections/NMAP/"
+        },
+        {
+            "type": "textual-source",
+            "title": "World War II Newsmaps, 1942-1946",
+            "creator_or_publisher": "Oregon State University Special Collections via Archives West",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Finding aid describing poster size, weekly publication, audience motivation, two-sided design, subjects, and dimensions.",
+            "year": 2013,
+            "url": "https://archiveswest.orbiscascade.org/ark:/80444/xv14511"
+        },
+        {
+            "type": "textual-source",
+            "title": "Records of Headquarters Army Service Forces [ASF]",
+            "creator_or_publisher": "National Archives and Records Administration",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Federal records guide confirming Newsmap cartographic series and content types.",
+            "year": "web guide",
+            "url": "https://www.archives.gov/research/guide-fed-records/groups/160.html"
+        },
+        {
+            "type": "textual-source",
+            "title": "You Are Here: Maps in the Catalog",
+            "creator_or_publisher": "National Archives Citizen Archivist",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Concise description of Newsmap's front format: large map surrounded by news stories, smaller maps, and photos.",
+            "year": 2021,
+            "url": "https://www.archives.gov/files/citizen-archivist/images/03-18-2021-maps.pdf"
+        }
+    ],
+    "rights": {
+        "brief_license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "copyright": "© 2026 Ian Muehlenhaus",
+        "creators": [
+            "Ian Muehlenhaus"
+        ],
+        "attribution_parties": [
+            "PromptCartography.com",
+            "NLGIS.ai",
+            "WebMapper.org"
+        ],
+        "credit_line": "Design brief: PromptCartography.com, NLGIS.ai, and WebMapper.org (CC BY 4.0).",
+        "preferred_map_credit": "Design: nlgis.ai",
+        "modification_notice_required": true,
+        "no_endorsement": true,
+        "source_rights_notice": "This license covers the design brief only; cited maps, scans, data, marks, typefaces, interfaces, and artwork retain their own rights."
+    },
+    "provenance": {
+        "created": "2026-06-30",
+        "modified": "2026-10-04",
+        "review_status": "draft",
+        "method": "Deterministically migrated from the frozen Prompt Cartography library with curated identity and intent profiles using TDBS migrator 0.1.0.",
+        "migrated_from": "promptcartography:american_wwii_newsmap_style_schema.json",
+        "source_sha256": "857aff75d7482d18d300b0d2a1fe8b27d9c0d00419cbb34b1f37d844349fc4f9",
+        "reviewers": [],
+        "notes": "Generated draft requiring cartographic, naming, attribution, source-rights, and cultural-sensitivity review before approval."
+    },
+    "provider_compatibility": {
+        "maptiler": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned MapTiler source/template contract."
+        },
+        "arcgis": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned ArcGIS VectorTileServer style."
+        },
+        "mapbox": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against the selected Mapbox style contract."
+        },
+        "maplibre": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a known source schema."
+        }
+    },
+    "extensions": {
+        "org.promptcartography.style-dna": {
+            "version": "1.0.0",
+            "vector": {
+                "modern_vs_historic": 30,
+                "minimal_vs_ornate": 70,
+                "scientific_vs_artistic": 65,
+                "reference_vs_thematic": 79,
+                "print_vs_interactive": 30,
+                "light_vs_dark": 50,
+                "formal_vs_playful": 50,
+                "muted_vs_vivid": 38,
+                "flat_vs_textured": 50,
+                "geometric_vs_organic": 50,
+                "sparse_vs_dense": 50,
+                "static_vs_animated": 20,
+                "generalized_vs_detailed": 50,
+                "neutral_vs_emotive": 75,
+                "low_vs_high_interaction": 20
+            },
+            "confidence": 0.77,
+            "source": "rule_based",
+            "review_status": "draft",
+            "rationale": {
+                "modern_vs_historic": "Historical-era inspiration pulls the style toward historic.",
+                "minimal_vs_ornate": "Ornate or vintage personality cue.",
+                "scientific_vs_artistic": "Expressive personality cues add artistic emphasis.",
+                "neutral_vs_emotive": "Dramatic or urgent cues make the style more emotive.",
+                "muted_vs_vivid": "Muted, neutral, earth-tone, or limited-color cue.",
+                "reference_vs_thematic": "Thematic, dashboard, or editorial category.",
+                "low_vs_high_interaction": "Static interaction level.",
+                "print_vs_interactive": "Static styles are usually print-oriented.",
+                "static_vs_animated": "Static interaction level."
+            },
+            "last_modified": "2026-07-12"
+        }
+    }
+}

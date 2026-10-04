@@ -1,0 +1,615 @@
+{
+    "$schema": "../../../spec/0.1.0/tdbs.schema.json",
+    "spec_version": "0.1.0",
+    "id": "us-county-atlas-landownership-19th-century",
+    "name": {
+        "canonical": "US County Atlas Landownership — 19th Century",
+        "alias": "Parcel Lines and County Seats",
+        "genre": "county atlas and cadastral reference map",
+        "era": "late 19th century",
+        "inspiration_notice": "An unofficial interpretive brief derived from source research and intended to guide original map styling; it does not reproduce or imply endorsement by referenced institutions, publishers, or cartographers.",
+        "organization_or_origin": [
+            "United States",
+            "Northeastern states",
+            "Midwestern states",
+            "Upper Midwest",
+            "Great Plains settlement frontier"
+        ]
+    },
+    "description": {
+        "summary": "A dense, commercially published cadastral atlas style built around township-and-range grids, section numbers, parcel boundaries, landowner names, roads, railroads, schools, churches, mills, farmhouses, watercourses, and occasional building or farmstead illustrations. The look is practical, local, subscription-era, and quietly ornate: a ledger of property and settlement wrapped in pastel hand-color, engraved linework, decorative frames, and civic booster marginalia.",
+        "design_principle": "Make ownership, settlement, and transport legible before all else; every graphic decision should feel like an engraved county plate designed to help a reader locate land, neighbors, roads, and civic institutions on paper.",
+        "historical_context": "County landownership atlases were commercially published, often by subscription campaigns. They developed from pre-Civil War wall-sized landownership maps and became especially popular from the 1860s onward, expanding from the Northeast into the Midwest during the 1870s and 1880s. Many volumes combined township cadastral plates with county histories, biographies, portraits, advertisements, and views of farms, residences, public buildings, mills, or prized livestock. Lithography, commonly with hand-color or printed color Engraved and lithographed linework with black ink as the structural layer Pastel hand-applied washes or printed tints for townships/parcels",
+        "geographic_origin": [
+            "United States",
+            "Northeastern states",
+            "Midwestern states",
+            "Upper Midwest",
+            "Great Plains settlement frontier"
+        ],
+        "avoid_misclassification_with": [
+            "fire insurance atlas fire insurance maps: more urban, building-material coded, and insurance-specific",
+            "Rand McNally railroad atlases: more generalized transport/network-oriented",
+            "US Geological Survey topographic maps: contour/hydrographic survey aesthetic rather than subscription cadastral atlas",
+            "Pictorial bird's-eye city views: perspective illustrations rather than planimetric landownership grids",
+            "Modern parcel GIS maps: lacks hand-color, engraved type hierarchy, and atlas-page marginalia"
+        ]
+    },
+    "classification": {
+        "ranked_intents": [
+            {
+                "rank": 1,
+                "intent": "reference",
+                "role": "primary",
+                "score": 96,
+                "rationale": "General geographic orientation, feature lookup, and broad contextual reading. This brief is ranked 1 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 2,
+                "intent": "educational-interpretive",
+                "role": "primary",
+                "score": 89,
+                "rationale": "Teaching, heritage, visitor interpretation, public history, and exhibition use. This brief is ranked 2 with a primary role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 3,
+                "intent": "human-geography",
+                "role": "hybrid",
+                "score": 85,
+                "rationale": "Settlements, boundaries, culture, population, political geography, and human networks. This brief is ranked 3 with a hybrid role based on its source classification and curated migration profile."
+            },
+            {
+                "rank": 4,
+                "intent": "thematic",
+                "role": "primary",
+                "score": 73,
+                "rationale": "Communication of a geographic variable, category, relationship, or argument. This brief is ranked 4 with a primary role based on its source classification and curated migration profile."
+            }
+        ],
+        "scales": [
+            "local",
+            "site"
+        ],
+        "label_density": "dense",
+        "terrain_emphasis": "context",
+        "dimensionality": "2d",
+        "interaction_fit": [
+            "static",
+            "exploratory"
+        ],
+        "projection_bias": "local-planar",
+        "mobile_fit": "low",
+        "implementation_complexity": "expert",
+        "subjects": [
+            "property boundaries and land ownership",
+            "Public Land Survey System townships, ranges, and sections",
+            "roads and railroads",
+            "schools, churches, mills, blacksmith shops, cemeteries, post offices",
+            "farmhouses and rural buildings",
+            "streams, rivers, lakes, swamps, timber, bluffs",
+            "village and city inset plans",
+            "county histories, portraits, residences, and advertisements"
+        ],
+        "visual_keywords": [
+            "vintage",
+            "ornate",
+            "handcrafted",
+            "authoritative",
+            "friendly"
+        ]
+    },
+    "design_tokens": {
+        "colors": {
+            "palette": [
+                {
+                    "name": "aged atlas paper",
+                    "value": "#F2E5C7",
+                    "roles": [
+                        "background",
+                        "land"
+                    ],
+                    "notes": "warm cream, not pure white"
+                },
+                {
+                    "name": "foxed paper shadow",
+                    "value": "#D8C49E",
+                    "roles": [
+                        "background"
+                    ]
+                },
+                {
+                    "name": "engraver ink",
+                    "value": "#2B2219",
+                    "roles": [
+                        "labels"
+                    ]
+                },
+                {
+                    "name": "faded township rose",
+                    "value": "#E8B7B5",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "faded township blue",
+                    "value": "#BFD2D6",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "faded township green",
+                    "value": "#C9D6B8",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "faded township yellow",
+                    "value": "#E8D89B",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "faded township lavender",
+                    "value": "#CDBFD9",
+                    "roles": [
+                        "general"
+                    ]
+                },
+                {
+                    "name": "water blue wash",
+                    "value": "#AFC8D8",
+                    "roles": [
+                        "water"
+                    ]
+                },
+                {
+                    "name": "railroad charcoal",
+                    "value": "#1D1A16",
+                    "roles": [
+                        "transportation",
+                        "labels"
+                    ]
+                },
+                {
+                    "name": "county boundary carmine",
+                    "value": "#A64F4B",
+                    "roles": [
+                        "selection"
+                    ]
+                }
+            ],
+            "behavior": [
+                "Use color as light washes beneath black linework; opacity should generally sit between 18% and 45%.",
+                "Alternate neighboring townships or civil divisions with soft pastel fills; do not imply data classes unless explicitly mapping a thematic variable.",
+                "Let color drift and slightly overshoot edges by 0.5-1.5 px when simulating hand-color.",
+                "Reserve high contrast for ink, railroads, and administrative hierarchy rather than fills.",
+                "Use warm paper and darker ink to create most of the perceived contrast."
+            ],
+            "avoid": [
+                "neon hues",
+                "pure white backgrounds",
+                "saturated web blues",
+                "modern categorical palettes",
+                "glossy gradients",
+                "dark-mode basemaps"
+            ]
+        },
+        "typography": {
+            "character": "A nineteenth-century mixed-type hierarchy: large ornamental display titles, Roman serif township names, compact serif owner names, italic hydrography, small caps for counties and railroads, and occasional script-like flourishes only for title/cloud web mapping platformuche use.",
+            "font_families": [
+                "Libre Baskerville",
+                "Cormorant Garamond",
+                "IM Fell English",
+                "Old Standard TT",
+                "Playfair Display",
+                "UnifrakturCook only for tiny decorative initials, not labels"
+            ],
+            "fallback_strategy": "Prefer metrically stable, licensable fonts with the language coverage required by the map; preserve hierarchy when substitution is necessary.",
+            "rules": [
+                "Prioritize owner names, section numbers, roads, and railroads over modern POI labels.",
+                "Use many labels; a slightly busy plate is authentic, but labels must remain locally decipherable at intended zoom.",
+                "Use abbreviations such as 'Sch.', 'Ch.', 'P.O.', 'Cem.', 'Sta.', and initials for owner names where space is tight.",
+                "Rotate labels along roads, rails, and streams; allow modest hand-set imperfection.",
+                "Do not use sans-serif UI type inside the map plate except for modern accessibility controls outside the frame."
+            ]
+        },
+        "linework": [
+            "Fine, inked, engraved, mostly monochrome linework with hierarchy produced through stroke weight, dashing, double lines, hachures, and labels rather than modern symbols.",
+            "county boundary: heavier carmine or dark brown line, sometimes doubled",
+            "township boundary: medium dark line, often straight PLSS grid geometry",
+            "section lines: thin regular grid, pale brown/black at low opacity",
+            "parcel lines: thin black/brown hairlines, slightly irregular",
+            "municipal/village limits: dashed or light dotted boundary",
+            "rivers as sinuous fine blue-gray or dark ink lines with light blue wash",
+            "lakes as pale blue wash with dark shoreline",
+            "marsh/swamp as stippled or reed-like hachures",
+            "streams labeled in italic serif",
+            "shorelines may include gentle parallel hatching",
+            "railroads: heavy black line with cross-ties or alternating tick marks; label along line",
+            "proposed railroads: dashed black rail alignment",
+            "major roads: double thin brown/black lines",
+            "minor roads: single thin line",
+            "bridges/ferries/toll roads marked with small serif abbreviations"
+        ],
+        "fills": [
+            "Use color as light washes beneath black linework; opacity should generally sit between 18% and 45%.",
+            "Alternate neighboring townships or civil divisions with soft pastel fills; do not imply data classes unless explicitly mapping a thematic variable.",
+            "Let color drift and slightly overshoot edges by 0.5-1.5 px when simulating hand-color.",
+            "Reserve high contrast for ink, railroads, and administrative hierarchy rather than fills.",
+            "Use warm paper and darker ink to create most of the perceived contrast.",
+            "Use a custom antique cadastral basemap; do not use modern commercial vector tiles without drastic restyling.",
+            "Base land should be cream paper with township and parcel geometry as primary structure.",
+            "Modern admin boundaries may be generalized to historical-looking ink lines.",
+            "If mapping modern data, convert it into period-plausible atlas notation: pastel district tint, hatch, dot, or marginal table rather than glossy choropleth.",
+            "Use parcel or township fills sparingly; do not hide owner labels.",
+            "For counts or rates, prefer engraved proportional symbols, small tables, or subtle hatching keyed in a 'References' box."
+        ],
+        "labels": [
+            "Prioritize owner names, section numbers, roads, and railroads over modern POI labels.",
+            "Use many labels; a slightly busy plate is authentic, but labels must remain locally decipherable at intended zoom.",
+            "Use abbreviations such as 'Sch.', 'Ch.', 'P.O.', 'Cem.', 'Sta.', and initials for owner names where space is tight.",
+            "Rotate labels along roads, rails, and streams; allow modest hand-set imperfection.",
+            "Do not use sans-serif UI type inside the map plate except for modern accessibility controls outside the frame.",
+            "owner names inside parcels",
+            "section numbers centered in section cells",
+            "township names large and spaced",
+            "railroad names along tracks",
+            "water labels italic",
+            "abbreviated civic labels",
+            "publisher-style notes in margins"
+        ],
+        "symbols": [
+            "schools: tiny square/flag or 'Sch.'",
+            "churches: small cross or 'Ch.'",
+            "cemeteries: 'Cem.' or tiny fenced symbol",
+            "mills/factories: small wheel/building glyph or label",
+            "post office: 'P.O.'",
+            "farmhouses: small black rectangles/dots",
+            "rail stations: small filled circle or rectangle",
+            "bridges: short perpendicular ticks across road/stream"
+        ],
+        "terrain": [
+            "relief is usually minimal; represent bluffs with short hachures",
+            "timber or swamp may be labeled directly rather than symbolized heavily",
+            "avoid modern shaded relief except as a very faint paper-toned wash",
+            "do not use contour-heavy US Geological Survey styling",
+            "minimal relief",
+            "hachured bluffs where relevant",
+            "timber/swamp/bluff labels as text",
+            "subtle stipple for wetlands or wooded areas"
+        ],
+        "materiality": [
+            "warm cream with slight yellow-brown aging, darker near edges and spine",
+            "fine scanned-paper grain and mild lithographic speckle",
+            "uneven ink density",
+            "slight registration misalignment",
+            "pastel wash edge bleed",
+            "faint plate impression",
+            "page number and atlas margin",
+            "fold or gutter shadow",
+            "minor foxing",
+            "subtle stains",
+            "edge darkening",
+            "corner scuffs",
+            "crease shadows",
+            "small scratches or paper fibers"
+        ]
+    },
+    "layer_semantics": {
+        "background": {
+            "visibility": "required",
+            "priority": 92,
+            "treatment": [
+                "Use color as light washes beneath black linework; opacity should generally sit between 18% and 45%.",
+                "Alternate neighboring townships or civil divisions with soft pastel fills; do not imply data classes unless explicitly mapping a thematic variable.",
+                "Let color drift and slightly overshoot edges by 0.5-1.5 px when simulating hand-color.",
+                "Reserve high contrast for ink, railroads, and administrative hierarchy rather than fills.",
+                "Use a custom antique cadastral basemap; do not use modern commercial vector tiles without drastic restyling.",
+                "Base land should be cream paper with township and parcel geometry as primary structure.",
+                "Modern admin boundaries may be generalized to historical-looking ink lines."
+            ]
+        },
+        "land": {
+            "visibility": "required",
+            "priority": 72,
+            "treatment": [
+                "Use a custom antique cadastral basemap; do not use modern commercial vector tiles without drastic restyling.",
+                "Base land should be cream paper with township and parcel geometry as primary structure.",
+                "Modern admin boundaries may be generalized to historical-looking ink lines."
+            ]
+        },
+        "water": {
+            "visibility": "required",
+            "priority": 82,
+            "treatment": [
+                "pale blue wash for lakes/rivers",
+                "dark engraved shoreline",
+                "italic labels",
+                "thin branching streams",
+                "marsh stipple/reed marks"
+            ]
+        },
+        "terrain": {
+            "visibility": "preferred",
+            "priority": 55,
+            "treatment": [
+                "minimal relief",
+                "hachured bluffs where relevant",
+                "timber/swamp/bluff labels as text",
+                "subtle stipple for wetlands or wooded areas"
+            ]
+        },
+        "boundaries": {
+            "visibility": "preferred",
+            "priority": 67,
+            "treatment": [
+                "county outline emphasized",
+                "township/range grid prominent",
+                "section grid visible at township scales",
+                "parcel boundaries thin and dense",
+                "civil townships filled with alternating pastels"
+            ]
+        },
+        "transportation": {
+            "visibility": "required",
+            "priority": 70,
+            "treatment": [
+                "railroads as black cross-tied linework",
+                "proposed railroads dashed",
+                "roads as single or double fine ink lines",
+                "bridges and stations abbreviated",
+                "avoid modern highway shields unless deliberately reinterpreted as tiny engraved route labels"
+            ]
+        },
+        "buildings": {
+            "visibility": "preferred",
+            "priority": 66,
+            "treatment": [
+                "villages as small gridded plans or insets",
+                "county seat emphasized with a label and maybe courthouse symbol",
+                "farmhouses as tiny black squares/dots",
+                "schools/churches/mills/blacksmith shops/post offices with small pictorial or letter symbols"
+            ]
+        },
+        "places": {
+            "visibility": "required",
+            "priority": 90,
+            "treatment": [
+                "owner names inside parcels",
+                "section numbers centered in section cells",
+                "township names large and spaced",
+                "railroad names along tracks",
+                "water labels italic",
+                "abbreviated civic labels",
+                "publisher-style notes in margins",
+                "villages as small gridded plans or insets",
+                "county seat emphasized with a label and maybe courthouse symbol",
+                "farmhouses as tiny black squares/dots"
+            ]
+        },
+        "pois": {
+            "visibility": "optional",
+            "priority": 46,
+            "treatment": [
+                "schools: tiny square/flag or 'Sch.'",
+                "churches: small cross or 'Ch.'",
+                "cemeteries: 'Cem.' or tiny fenced symbol",
+                "mills/factories: small wheel/building glyph or label",
+                "post office: 'P.O.'",
+                "farmhouses: small black rectangles/dots",
+                "rail stations: small filled circle or rectangle",
+                "bridges: short perpendicular ticks across road/stream"
+            ]
+        },
+        "thematic_overlay": {
+            "visibility": "required",
+            "priority": 100,
+            "treatment": [
+                "If mapping modern data, convert it into period-plausible atlas notation: pastel district tint, hatch, dot, or marginal table rather than glossy choropleth.",
+                "Use parcel or township fills sparingly; do not hide owner labels.",
+                "For counts or rates, prefer engraved proportional symbols, small tables, or subtle hatching keyed in a 'References' box."
+            ]
+        }
+    },
+    "constraints": {
+        "required": [
+            "Make ownership, settlement, and transport legible before all else; every graphic decision should feel like an engraved county plate designed to help a reader locate land, neighbors, roads, and civic institutions on paper."
+        ],
+        "preferred": [
+            "Use dense owner/place labeling at high zoom; declutter by scale rather than omitting the landownership character entirely.",
+            "Style railroads as cross-tied or strongly dashed/double-line ink features.",
+            "Use serif typography throughout the map plate.",
+            "Do not use modern sans-serif map labels inside the atlas plate.",
+            "Do not use a generic modern street map as the visible base.",
+            "Do not use dark mode for the map plate.",
+            "For MapLibre/web map library, create a page container behind the map canvas and constrain the viewport to the map plate when possible.",
+            "Owner labels should be symbolized with zoom-dependent collision rules and abbreviated labels at lower zoom.",
+            "Create line-pattern images for cross-tie railroads and marsh hachures.",
+            "Prefer Albers/equal-area or local county projection for modern web maps unless mimicking a specific scanned plate; keep north-up and rectilinear.",
+            "On tablets, preserve the map frame and collapse directories/references into a bottom drawer styled as a paper slip.",
+            "On phones, require landscape for full plate view when dense labeling is central; otherwise default to a simplified township overview with zoom-to-parcel flow."
+        ],
+        "avoid": [
+            "fire insurance atlas fire insurance maps: more urban, building-material coded, and insurance-specific",
+            "Rand McNally railroad atlases: more generalized transport/network-oriented",
+            "US Geological Survey topographic maps: contour/hydrographic survey aesthetic rather than subscription cadastral atlas",
+            "Pictorial bird's-eye city views: perspective illustrations rather than planimetric landownership grids",
+            "Modern parcel GIS maps: lacks hand-color, engraved type hierarchy, and atlas-page marginalia",
+            "neon hues",
+            "pure white backgrounds",
+            "saturated web blues",
+            "modern categorical palettes",
+            "glossy gradients",
+            "dark-mode basemaps"
+        ],
+        "unsupported": [
+            "Exact facsimile reproduction of a named source map, protected artwork, logo, seal, interface, or trade dress.",
+            "Provider-specific behavior that has not been verified against a pinned source and style contract."
+        ],
+        "accessibility": {
+            "color_independence": "Pastel fills should not carry critical meaning alone. Pair fills with labels, boundary patterns, and clear legend text. Maintain high contrast for owner names and roads even if the antique texture is present.",
+            "contrast": "Preserve readable contrast for labels, lines, and critical symbols at intended zoom levels.",
+            "minimum_text_size": "Adapt historical or print typography to a practical screen-reading threshold.",
+            "additional": [
+                "Test the compiled style in grayscale and under common color-vision simulations."
+            ]
+        }
+    },
+    "sources": [
+        {
+            "type": "reference-map",
+            "title": "Map of Ramsey County, Minn.",
+            "creator_or_publisher": "A. T. Andreas; Chas. Shober & Co.; Chicago Lithographing Co.",
+            "rights": "See holding institution record",
+            "relevance": "Hand-colored lithographed atlas map; shows townships, sections, owners of large parcels, and buildings outside towns.",
+            "year": 1874,
+            "url": "https://www.davidrumsey.com/maps740090-22474.html",
+            "holding_institution": "David Rumsey Historical Map Collection"
+        },
+        {
+            "type": "reference-map",
+            "title": "Map of Polk County, State of Iowa",
+            "creator_or_publisher": "A. T. Andreas; Andreas Atlas Co.; Chas. Shober & Co.; Chicago Lithographing Co.; Mills & Co.",
+            "rights": "See holding institution record",
+            "relevance": "Colored lithographed county atlas map with farm houses, landowners, schools, churches, mills, roads, railroads, proposed railroads, timber, swamps, and bluffs.",
+            "year": 1875,
+            "url": "https://www.davidrumsey.com/maps730024-22278.html",
+            "holding_institution": "David Rumsey Historical Map Collection"
+        },
+        {
+            "type": "reference-map",
+            "title": "Iowa Counties Historic Atlases",
+            "creator_or_publisher": "University of Iowa Libraries Map Collection; State Historical Society Library, Iowa City",
+            "rights": "Public domain; no restrictions on use according to collection record",
+            "relevance": "Large corpus of county atlas pages featuring maps, advertisements, photographs, and local histories.",
+            "year": "1858-1942 collection",
+            "url": "https://digital.lib.uiowa.edu/atlases",
+            "holding_institution": "Iowa Digital Library"
+        },
+        {
+            "type": "reference-map",
+            "title": "County landownership atlases guide",
+            "creator_or_publisher": "Library of Congress Geography and Map Division",
+            "rights": "See LOC guide",
+            "relevance": "Explains county landownership atlas production, content, and LOC holdings.",
+            "year": "guide updated 2026",
+            "url": "https://guides.loc.gov/maps-illustrated-guide/cities-and-counties",
+            "holding_institution": "Library of Congress"
+        },
+        {
+            "type": "reference-map",
+            "title": "Maps at MNHS: Atlases & Plats",
+            "creator_or_publisher": "Minnesota Historical Society",
+            "rights": "See holding institution",
+            "relevance": "Useful for Minnesota county atlas and plat-book conventions based on Public Land Survey lines.",
+            "year": "guide updated 2025",
+            "url": "https://libguides.mnhs.org/maps/atlas",
+            "holding_institution": "Minnesota Historical Society"
+        },
+        {
+            "type": "textual-source",
+            "title": "Cities and Counties - Library of Congress Geography & Maps: An Illustrated Guide",
+            "creator_or_publisher": "Library of Congress",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Defines county landownership atlases as commercially published cadastral maps for individual townships within counties and describes associated histories, biographies, portraits, and views.",
+            "year": "2026 guide update",
+            "url": "https://guides.loc.gov/maps-illustrated-guide/cities-and-counties"
+        },
+        {
+            "type": "textual-source",
+            "title": "County Atlases - Map Collection",
+            "creator_or_publisher": "University of Iowa Libraries",
+            "rights": "Rights not stated in source brief; verify before reuse.",
+            "relevance": "Describes Iowa county atlas holdings, online access, LOC American Memory overlap, and 1870s-1930s county atlas microfilm holdings.",
+            "year": "2014 guide update",
+            "url": "https://www.lib.uiowa.edu/maps/countyatlases/"
+        }
+    ],
+    "rights": {
+        "brief_license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "copyright": "© 2026 Ian Muehlenhaus",
+        "creators": [
+            "Ian Muehlenhaus"
+        ],
+        "attribution_parties": [
+            "PromptCartography.com",
+            "NLGIS.ai",
+            "WebMapper.org"
+        ],
+        "credit_line": "Design brief: PromptCartography.com, NLGIS.ai, and WebMapper.org (CC BY 4.0).",
+        "preferred_map_credit": "Design: nlgis.ai",
+        "modification_notice_required": true,
+        "no_endorsement": true,
+        "source_rights_notice": "This license covers the design brief only; cited maps, scans, data, marks, typefaces, interfaces, and artwork retain their own rights."
+    },
+    "provenance": {
+        "created": "2026-07-01",
+        "modified": "2026-10-04",
+        "review_status": "draft",
+        "method": "Deterministically migrated from the frozen Prompt Cartography library with curated identity and intent profiles using TDBS migrator 0.1.0.",
+        "migrated_from": "promptcartography:19th_century_county_atlas_style_schema.json",
+        "source_sha256": "499a2bc7422586ad60a8cb6188a03d9636e09b1b35737e1598c8fa1ba47cec42",
+        "reviewers": [],
+        "notes": "Generated draft requiring cartographic, naming, attribution, source-rights, and cultural-sensitivity review before approval."
+    },
+    "provider_compatibility": {
+        "maptiler": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned MapTiler source/template contract."
+        },
+        "arcgis": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a pinned ArcGIS VectorTileServer style."
+        },
+        "mapbox": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against the selected Mapbox style contract."
+        },
+        "maplibre": {
+            "status": "not-tested",
+            "notes": "Requires compilation and validation against a known source schema."
+        }
+    },
+    "extensions": {
+        "org.promptcartography.style-dna": {
+            "version": "1.0.0",
+            "vector": {
+                "modern_vs_historic": 45,
+                "minimal_vs_ornate": 70,
+                "scientific_vs_artistic": 60,
+                "reference_vs_thematic": 35,
+                "print_vs_interactive": 30,
+                "light_vs_dark": 50,
+                "formal_vs_playful": 50,
+                "muted_vs_vivid": 50,
+                "flat_vs_textured": 58,
+                "geometric_vs_organic": 50,
+                "sparse_vs_dense": 50,
+                "static_vs_animated": 20,
+                "generalized_vs_detailed": 68,
+                "neutral_vs_emotive": 50,
+                "low_vs_high_interaction": 20
+            },
+            "confidence": 0.75,
+            "source": "rule_based",
+            "review_status": "draft",
+            "rationale": {
+                "modern_vs_historic": "Older publication traditions lean historic.",
+                "minimal_vs_ornate": "Ornate or vintage personality cue.",
+                "flat_vs_textured": "Handcrafted cue suggests texture and human mark-making.",
+                "scientific_vs_artistic": "Handcrafted cue adds artistic emphasis.",
+                "reference_vs_thematic": "Reference, atlas, or topographic category.",
+                "low_vs_high_interaction": "Static interaction level.",
+                "print_vs_interactive": "Static styles are usually print-oriented.",
+                "static_vs_animated": "Static interaction level.",
+                "generalized_vs_detailed": "Detailed reference map-type cue."
+            },
+            "last_modified": "2026-07-12"
+        }
+    }
+}
