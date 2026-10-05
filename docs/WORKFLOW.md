@@ -1,4 +1,4 @@
-# TDBS workflow
+# TDI workflow
 
 ## 1. Author or select a brief
 
@@ -6,11 +6,11 @@ Identify the map purpose, geography, audience, preferred scale, important layers
 
 ## 2. Research and normalize
 
-An agent or human may gather references and normalize the result into the TDBS structure. Research sources and rights should remain explicit rather than hidden in a prompt.
+An agent or human may gather references and normalize the result into the TDI structure. Research sources and rights should remain explicit rather than hidden in a prompt.
 
 ## 3. Select a provider contract
 
-Combine the TDBS brief with a pinned source/template contract. This is where provider layer names, glyphs, sprites, expressions, and native syntax enter the process.
+Combine the TDI brief with a pinned source/template contract. This is where provider layer names, glyphs, sprites, expressions, and native syntax enter the process.
 
 ## 4. Compile and validate
 

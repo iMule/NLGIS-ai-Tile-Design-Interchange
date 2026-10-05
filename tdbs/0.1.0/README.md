@@ -1,6 +1,6 @@
-# Tile Design Brief Standard (TDBS) 0.1.0
+# Tile Design Interchange (TDI) 0.1.0
 
-TDBS is a provider-neutral interchange format for describing the visual intent of tiled and web maps. A TDBS document is a design brief, not an executable renderer stylesheet.
+TDI is a provider-neutral interchange format for describing the visual intent of tiled and web maps. A TDI document is a design brief, not an executable renderer stylesheet.
 
 ## Design principles
 
@@ -22,7 +22,7 @@ TDBS is a provider-neutral interchange format for describing the visual intent o
 
 ## Core versus compiled artifacts
 
-A conforming TDBS brief does not contain provider source URLs, provider layer IDs, API keys, sprites, glyph endpoints, or executable expressions unless they appear in a namespaced extension. Those operational details belong in compiled packages and their manifests.
+A conforming TDI brief does not contain provider source URLs, provider layer IDs, API keys, sprites, glyph endpoints, or executable expressions unless they appear in a namespaced extension. Those operational details belong in compiled packages and their manifests.
 
 ## Versioning
 

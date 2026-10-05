@@ -1,8 +1,8 @@
-# NLGIS.ai Tile Design Brief Standard
+# NLGIS.ai Tile Design Interchange (TDI)
 
 ## A shared language for designing tiled maps
 
-**TDBS** — the **Tile Design Brief Standard** — is an open, provider-neutral format for describing how a map should look and behave before it becomes a provider-specific style.
+**TDI** — the **Tile Design Interchange** — is an open, provider-neutral format for describing how a map should look and behave before it becomes a provider-specific style.
 
 It is designed to be useful to:
 
@@ -20,7 +20,7 @@ It is designed to be useful to:
 Write the durable design intent once. Compile it for the platform you need.
 
 ~~~
-TDBS design brief
+TDI design brief
         +
 provider source/template contract
         |
@@ -28,7 +28,7 @@ provider source/template contract
 MapTiler · ArcGIS Vector Tile Editor · Mapbox · MapLibre · other providers
 ~~~
 
-A TDBS brief describes purpose, audience, scale, hierarchy, color, typography, linework, semantic layers, sources, rights, accessibility, and constraints. Provider-specific layer IDs, expressions, glyphs, sprites, and operational settings belong in the compilation stage.
+A TDI brief describes purpose, audience, scale, hierarchy, color, typography, linework, semantic layers, sources, rights, accessibility, and constraints. Provider-specific layer IDs, expressions, glyphs, sprites, and operational settings belong in the compilation stage.
 
 ## What is in this repository?
 
@@ -45,7 +45,7 @@ A TDBS brief describes purpose, audience, scale, hierarchy, color, typography, l
 
 A provider style JSON is an implementation artifact. It depends on a particular source, layer naming scheme, glyph endpoint, sprite package, expression language, and editor.
 
-TDBS keeps the portable cartographic decision separate:
+TDI keeps the portable cartographic decision separate:
 
 1. **Intent** — what the map is for.
 2. **Design language** — how it should feel and communicate.
@@ -72,7 +72,7 @@ You do not need to know every provider’s internal layer name to express the de
 
 ## For agents
 
-Agents can use TDBS to:
+Agents can use TDI to:
 
 1. filter a style library by ranked map intention;
 2. select a suitable historical or contemporary design reference;
@@ -86,7 +86,7 @@ The controlled vocabulary and ranked intentions make mechanical selection possib
 
 ## For GIS software
 
-A GIS application can treat a TDBS document as:
+A GIS application can treat a TDI document as:
 
 - a style-authoring input;
 - a design handoff;
@@ -95,7 +95,7 @@ A GIS application can treat a TDBS document as:
 - a provider-compilation source;
 - a compatibility and validation target.
 
-TDBS does not promise pixel-identical output across providers. It makes the intended design decisions explicit so differences can be documented rather than hidden.
+TDI does not promise pixel-identical output across providers. It makes the intended design decisions explicit so differences can be documented rather than hidden.
 
 ## Included examples
 
@@ -120,9 +120,10 @@ See LICENSE for the complete terms. Where a brief identifies additional source l
 ## Project links
 
 - [Use TileStyler](https://www.tilestyler.com/)
+- [GitHub specification repository](https://github.com/iMule/NLGIS-ai-Tile-Design-Interchange)
 - [NLGIS.ai](https://www.nlgis.ai/)
 - [NLGIS Labs](https://www.nlgislabs.com/)
 - [WebMapper.org](https://www.webmapper.org/)
 - [Prompt Cartography](https://www.promptcartography.com/)
 
-TDBS 0.1.0 is an experimental foundation release. Contributions, critiques, examples, and implementation feedback are welcome.
+TDI 0.1.0 is an experimental foundation release. Contributions, critiques, examples, and implementation feedback are welcome.

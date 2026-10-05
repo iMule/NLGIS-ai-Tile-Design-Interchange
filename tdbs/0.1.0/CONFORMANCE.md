@@ -1,4 +1,4 @@
-# TDBS 0.1.0 conformance
+# TDI 0.1.0 conformance
 
 ## Brief Core
 
@@ -27,10 +27,10 @@ A Library Brief satisfies Brief Core and additionally:
 
 ## Compiled Package
 
-A Compiled Package is not itself a TDBS brief. It must include:
+A Compiled Package is not itself a TDI brief. It must include:
 
 - The source brief ID and cryptographic digest.
-- TDBS version.
+- TDI version.
 - Provider and provider style-specification version.
 - Source/template identifier and version.
 - Compiler identifier and version.
@@ -40,7 +40,7 @@ A Compiled Package is not itself a TDBS brief. It must include:
 
 ## Rules requiring a linter
 
-JSON Schema does not enforce ordered scores, contiguous ranks, cross-field uniqueness, semantic layer presence, URL retrieval, source-license accuracy, or provider compatibility. The TDBS linter is responsible for these checks.
+JSON Schema does not enforce ordered scores, contiguous ranks, cross-field uniqueness, semantic layer presence, URL retrieval, source-license accuracy, or provider compatibility. The TDI linter is responsible for these checks.
 
 ## Compatibility
 

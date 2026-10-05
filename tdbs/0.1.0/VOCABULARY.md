@@ -1,4 +1,4 @@
-# TDBS 0.1.0 controlled vocabulary
+# TDI 0.1.0 controlled vocabulary
 
 ## Ranked intentions
 
