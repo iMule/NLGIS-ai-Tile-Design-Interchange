@@ -126,4 +126,4 @@ See LICENSE for the complete terms. Where a brief identifies additional source l
 - [WebMapper.org](https://www.webmapper.org/)
 - [Prompt Cartography](https://www.promptcartography.com/)
 
-TDI 0.1.0 is an experimental foundation release. Contributions, critiques, examples, and implementation feedback are welcome.
+TDI 0.1.0 is an experimental foundation release. Contributions, critiques, examples, and implementation feedback are welcome. For more information about the project or to collaborate directly, please email human{@}promptcartography.com with subject line: TDI.
